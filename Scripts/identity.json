@@ -1,0 +1,11 @@
+﻿{"typ":"JWT","alg":"RS256"}
+{
+	"UserType":"Generic",
+	"LOA":"urn:password",
+	"actortoken":"12345678",
+	"aud":"CommBank.AppStore.*",
+	"nbf":1343954269.0730579,
+	"identityprovider":"AppStore_IDP",
+	"iss":"CBA.Developer.v1",
+	"exp":1501720673.2603703
+}

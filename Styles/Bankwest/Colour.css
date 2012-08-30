@@ -1,0 +1,38 @@
+﻿.primary-color1 {
+    color: #000;
+    background-color:#FF920C;
+}
+.primary-color2 {
+    color: #000;
+    background-color:#FFF;
+}
+.primary-color3 {
+    color: #FFF;
+    background-color:#000;
+}
+
+.support-color1 {
+    color: #000;
+    background-color:#333333;
+}
+
+.tinting-color1 {
+    color: #000;
+    background-color:#999999;
+}
+.tinting-color2 {
+    color: #FFF;
+    background-color:#666666;
+}
+.tinting-color3 {
+    color: #000;
+    background-color:#CCC;
+}
+.tinting-color4 {
+    color: #000;
+    background-color:#F6F5F5;
+}
+.tinting-color5 {
+    color: #000;
+    background-color:#FFF0E0;
+}

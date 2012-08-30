@@ -1,0 +1,357 @@
+﻿.form {
+    width: 100%;
+    display: table;
+	color: #666;
+	border: 1px solid #DDD; 
+}
+.form .header {
+    color: #000;
+}
+.form .content {
+    padding: 1em; 
+    background-color: #FFF;   
+}
+.form .input {
+    margin: 0.625em 0 0 0;
+    min-height: 3.125em;
+    position:relative;
+}
+.form fieldset  {
+    border:none;
+    margin:0 0 1.25em 0;
+    padding:0;    
+}
+.form legend  {
+    font-size: 1.25em;
+    margin-bottom: 0.625em;
+    padding: 0;
+    font-weight:bold;
+}
+.form .input label {
+	font-size: 1em;
+	display:block;
+	text-transform:capitalize;
+}
+.form .input input, 
+.form .input select {
+	width: 100%;
+	font-size: 0.875em;
+	border: 1px solid #DDD;
+	border-radius:0.500em;
+	padding: 0.938em 0.625em;
+	margin: 0.313em 0;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.form .input input.small {
+    width: 7.500em;   
+}
+.form .input input:focus,
+.form .input select:focus {
+    border: 1px solid #666;
+    outline:none;
+}
+
+.form button {
+	cursor: pointer;
+	padding: 0.625em 1.25em;
+	border-radius: 0.500em;
+	text-transform: lowercase;
+	font-weight: bold;
+	font-size: 1.1em;
+	background-color: #F4F4F4;
+	border: 1px solid #DDD;
+	color: black;
+}
+
+/* DISABLED/READONLY
+-----------------------------*/
+.form .input.disabled input	 {
+	background-color: #F4F4F4;
+}
+.form .input.disabled input:focus {
+	border: 1px solid #DDD;
+}
+
+/* POSTPENDED INPUT FIELD
+-----------------------------*/ 
+.form .input .postpended {
+    width: 100%;
+    position:relative;
+    display:table;
+    background-color: #FFF;
+    -webkit-border-radius: 0.313em;
+    -moz-border-radius: 0.313em;
+    border-radius: 0.313em;
+}
+.form .input .postpended input {
+    width: 100%;
+    display:table-cell;
+    font-size: 1em;
+}
+.form .input .postpended > div {
+    width: 2.813em;
+    padding: 0.813em;
+    display:table-cell;
+    text-align:right;
+}
+
+/* RADIOGROUP/CHECKGROUP 
+-----------------------------*/ 
+.form .input .radiogroup, 
+.form .input .checkgroup {
+    background-color: #F4F4F4;
+    padding: 0.938em;
+    border: 1px solid #DDD;
+    border-radius: 0.500em;
+    margin: 0.313em 0;
+}
+.form .input .radiogroup label,
+.form .input .checkgroup label {
+    display:inline;
+    margin: 0 3.125em 0 0.313em;
+}
+.form input[type="radio"],
+.form input[type="checkbox"] {
+    width: auto; 
+    margin: 0;
+}
+.form .input .checkgroup {
+    background-color: transparent;
+    border:none;
+    width: 100%;
+}
+
+/* VALIDATABLE
+-----------------------------*/
+.form .input.validatable.error input,
+.form .input.validatable input.error {
+	border: 1px solid #f00;
+}
+.form .input.validatable.error {
+	color: #f00;
+}
+.form .input.validatable.error .errormessage {
+	display:block;
+	font-style: italic;
+    font-size: 0.750em;
+} 
+.form .input.validatable .errormessage, 
+.form .input.validatable.error .description {
+	display:none;
+}
+
+/* MEDIA UPLOAD - todo
+-----------------------------*/
+#imageedit {
+	display: inline-block;
+	position: relative;
+	border: 1px solid #979797;
+	padding: 0.500em;
+	border-radius: 0.313em;
+}
+#imageview {
+	cursor: pointer;
+	width: 100px;
+	height: 100px;
+}
+#imageedit span {
+	background-color: White;
+	border-radius: 0.313em;
+	color: #4ec4e2;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 4px 12px;
+	position: absolute;
+	right: 13px;
+	bottom: 15px;
+	opacity: 0;
+	-webkit-transition: opacity .3s;
+}
+#imageedit:hover span {
+	opacity: 1;
+}
+
+/* TWO COLUMN INPUT
+----------------------------- */
+ .form .two-column:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; 
+}
+.form .two-column > div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+    float:left;
+}
+.form .two-column > div:first-child {
+    padding-right: 0.625em;
+}
+.form .two-column > div:last-child  {
+    padding-left: 0.625em;
+}
+
+/* ACTIONS 
+----------------------------- */
+.form .actions {
+	text-align: left;
+	margin: 1.563em 0;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.form .actions:after {
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.form .actions div.primary,
+.form .actions div.secondary,
+.form .actions div.neutral {
+	float:left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 50%;
+}
+.form .actions div.primary {
+	text-align: right;
+}
+.form .actions div.primary button,
+.form .actions div.primary input,
+.form .actions div.secondary button,
+.form .actions div.secondary input,
+.form .actions div.neutral button,
+.form .actions div.neutral input {
+	cursor: pointer;
+	padding: 0.938em 3.125em;
+    border-radius: 0.500em;
+    text-transform: capitalize;
+    font-size: 1em;
+}
+.form .actions div.primary button,
+.form .actions div.primary input,
+.form .actions div.neutral input,
+.form .actions div.neutral button {
+	background-color: #FFC700;
+    border: 1px solid #FFC700;
+    color: #000;
+}
+.form .actions div.secondary button,
+.form .actions div.secondary input{
+	float:left;
+	background-color: #F4F4F4;
+    border: 1px solid #DDD;
+}
+
+.form .actions div.neutral {
+    text-align:center;
+    width: 100%;
+}
+
+/* FORM EXTRAS 
+-----------------------------*/
+.form .message {
+    font-size: 1.375em;
+    padding-bottom: 0.625em;
+}
+.form .message .small {
+    font-size: 0.750em;
+    line-height: 1.563em;
+}
+.form .message span {
+    display:block;
+    margin-bottom: 0.313em;
+}
+.form .description {
+    font-size: 0.750em;
+    font-style:italic;
+    font-weight: normal;
+    color: #A7A7A7;
+}
+.form .help {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.form a:link, .form a:visited {
+    color: #5AC8E4;
+    font-size: 1em;
+    text-transform:capitalize;
+    text-decoration:none;
+}
+.form .spinner {
+	width: 2.188em;
+	height: 1.563em;
+	background-image: url(images/spinner_yellow.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	float: left;
+	-webkit-animation-name: spin;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes spin {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(360deg); }
+}
+
+/* MEDIA QUERIES 
+-------------------------- */
+/* 480px */
+@media all and (max-width: 30em) {
+    .form .two-column > div {
+        width: 100%;
+    }
+    .form .two-column > div:first-child,
+    .form .two-column > div:last-child {
+        padding:0;
+    }
+    .form .input {
+        min-height: 100%;
+    }
+}
+
+/* 380px */
+@media all and (max-width: 23.75em) {
+    .form .content {
+        padding: 0.625em;
+    }
+    
+    /* ACTION BUTTONS 
+    ---------------------------*/
+    .form .actions div.primary,
+    .form .actions div.secondary,
+    .form .actions div.neutral {
+	    width: 100%;
+    }
+    .form .actions div.primary {
+        text-align: left;
+    } 
+    .form .actions div.primary button,
+    .form .actions div.primary input,
+    .form .actions div.secondary button,
+    .form .actions div.secondary input,
+    .form .actions div.neutral button,
+    .form .actions div.neutral input {
+        width: 100%;
+    }
+    
+   /* RADIOGROUP/CHECKGROUP 
+   -----------------------------*/ 
+   .form .input .radiogroup span, 
+   .form .input .checkgroup span {
+        display:block;
+        width: 100%;
+   }
+}

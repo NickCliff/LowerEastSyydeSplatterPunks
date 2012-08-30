@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<manifest xmlns="http://commbank.com.au/appstore/manifest.v1.xsd"
+					xmlns:dt="http://commbank.com.au/appstore/dataTypes.v1.xsd"
+					xmlns:nc="http://commbank.com.au/appstore/netbankContainer.v1.xsd"
+					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<app>
+		<appId>CommBank.Customer.ContextExample</appId>
+		<appName>Context Example</appName>
+		<version>1.0.0</version>
+		<publisherId>CBA</publisherId>
+		<publisherName>Commonwealth Bank of Australia</publisherName>
+		<description>An example of how to subscribe to context change evetns.</description>
+		<versionNotes></versionNotes>
+		<appIcon>~/images/icon.jpg</appIcon>
+		<screenshots>
+			<screenshot>~/images/screenshot1.jpg</screenshot>
+		</screenshots>
+    <themes>
+      <container>
+        <supports name="Sections" />
+        <supports name="Typography" />
+        <supports name="Form" />
+      </container>
+      <custom fallback="default">
+        <theme name="default">
+          <link rel="stylesheet" href="Styles/AccountBalance.css"/>
+        </theme>
+      </custom>
+    </themes>
+		<exposes>
+			<ui interfaceId="ContainerLaunch" interfaceVersion="1" resolvesTo="~/Default.html">
+				<!--
+				<parameters>
+					<wellKnownParameter xsi:type="dt:AppEntity"/>
+				</parameters>
+			 -->
+				<permittedConsumers>
+					<app xsi:type="AnyApp"/>
+					<container xsi:type="AnyContainer"/>
+                    <user xsi:type="UserAnonymous"/>
+				</permittedConsumers>
+			</ui>
+		</exposes>
+	</app>
+</manifest>

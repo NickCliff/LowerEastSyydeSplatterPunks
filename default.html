@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Developer</title>
+    <link href="Styles/vader/jquery-ui-1.8.20.custom.css" rel="stylesheet" type="text/css" />
+	<link href="Styles/developer.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="head">
+		<ul id="device" class="setting">
+			<li data-class="phone">Phone</li>
+			<li data-class="tablet">Tablet</li>
+		</ul>
+		<ul id="orientation" class="setting">
+			<li data-class="portrait">Portrait</li>
+			<li data-class="landscape">Landscape</li>
+		</ul>
+		<ul id="zoom" class="setting">
+			<li data-class="200">200%</li>
+			<li data-class="160">160%</li>
+			<li data-class="100">100%</li>
+			<li data-class="80">80%</li>
+			<li data-class="50">50%</li>
+		</ul>
+		<ul id="console" class="setting">
+			<li data-class="on">Console On</li>
+			<li data-class="off">Console Off</li>
+			<li data-method="consoleClear">Clear</li>
+		</ul>
+		<input type="text" id="location" class="setting" placeholder="App location..." style="display:none;" />
+        &nbsp;App: <select id="appList" ></select>
+        &nbsp;Theme: <select id="theme" >
+            <option value="CommBank">CommBank</option>
+            <option value="ASB">ASB</option>            
+            <option value="Bankwest">Bankwest</option>
+        </select>
+    </div>
+	<div id="body">
+		<div id="contentFrame">
+			<div id="contentBody">
+ 				<div id="home"></div>
+			</div>
+		</div>
+		<div id="consoleFrame">
+            <div id="tabs">
+                <ul id="consoleTabs">
+                    <li><a href="#tabTrace">Container trace</a></li>
+                    <li><a href="#tabContextEditor">Context Editor</a></li>
+                    <!--<li><a href="#tabInstrumentation">Instrumentation</a></li>-->
+                    <!--<li><a href="#tabInstrumentationConsole">Instrumentation Console</a></li>-->
+                </ul>
+
+                <div id="tabTrace">
+                    <div class='traceframe section'>
+                        <div class="header">
+                            Trace level: <select id='traceLevel'>
+                                <option value='0'>Verbose</option>
+                                <option value='1'>Info</option>
+                                <option value='2'>Warning</option>
+                                <option value='3'>Error</option>
+                                <option value='4'>Critical</option>
+                            </select>
+                            &nbsp;
+                            <a href="#" id="btnClearTrace">Clear</a>
+                        </div>
+                        <div class="tracescrollframe">
+                            <ul class="tracedata"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div id="tabInstrumentation">
+    				<iframe id="instrumentation" src="about:blank"></iframe>
+                </div>-->
+                <!--<div id="tabInstrumentationConsole" class="ui-tabs-hide">
+    				<iframe src="http://msmq.dev1.finest.online.cba:28131/Instrumentation.Console/reports/Dashboard.aspx"></iframe>
+                </div>-->
+                <div id="tabContextEditor">
+                </div>
+
+            </div>
+		</div>
+	</div>
+	<div id="foot">
+		...
+	</div>
+
+	<!-- templates -->
+	<script id="appTemplate" type="text/x-jsrender">
+            <option value="{{: publisherId + '.' + appId + '.' + version }}" data-publisherid="{{: publisherId }}" data-appid="{{: appId }}" data-version="{{: version }}">({{> publisherId }}) {{> appName }} version {{> version }}</option> 
+    </script>
+
+	<script id="traceItemTemplate" type="text/x-jsrender">
+        <li class='{{:levelClass}}' data-level="{{:level}}"><span class='traceTime'>{{:timestamp}}: </span>{{:source}}::{{:method}} - {{: text}}</li> 
+    </script>
+
+    <script type='text/javascript'>
+        // tell the developer container that we are in HTML mode
+        window.AppStore = window.AppStore || {};
+        window.AppStore.HTMLMode = true;    
+    </script>
+
+	<!-- framework scripts-->
+	<script type="text/javascript" src="Scripts/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+	<script type="text/javascript" src="Scripts/jquery.ui.tabs.js"></script>
+	<script type="text/javascript" src="Scripts/jquery.ui.dialog.js"></script>
+	<script type="text/javascript" src="Scripts/jquery.ui.button.js"></script>
+	<script type="text/javascript" src="Scripts/jsrender.js"></script>
+	<script type="text/javascript" src="Scripts/AppStore.Ajax.js"></script>
+	<script type="text/javascript" src="Scripts/AppStore.Common.js"></script>
+	<script type="text/javascript" src="Scripts/PageBus/full/pagebus.js"></script>
+	<script type="text/javascript" src="Scripts/AppStore.Container.js"></script>
+	<!-- app scripts -->
+    <script src="Scripts/jquery.mockjax.js" type="text/javascript"></script>
+	<script type="text/javascript" src="Scripts/developer.js"></script>
+</body>
+</html>

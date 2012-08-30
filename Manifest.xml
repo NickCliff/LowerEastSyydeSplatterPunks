@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<manifest xmlns="http://commbank.com.au/appstore/manifest.v1.xsd"
+					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <app>
+        <publisherId>CBA</publisherId>
+        <appId>Developer</appId>
+        <appName>Developer</appName>
+        <version>1</version>
+        <publisherName>Commonwealth Bank</publisherName>
+        <exposes>
+            <ui interfaceId="Launch1" interfaceVersion="1" resolvesTo="~/Developer.aspx">
+                <permittedConsumers>
+                    <user xsi:type="UserAnonymous"/>
+                </permittedConsumers>
+            </ui>
+          <dataService interfaceId="AppSearch" interfaceVersion="1" resolvesTo="~/ContainerService.asmx">
+            <permittedConsumers>
+              <app xsi:type="SpecificApp" publisherId="CBA" appId="CommBank.AppStore.AppSearch" />
+              <app xsi:type="SpecificApp" publisherId="CBA" appId="CommBank.AppStore.AppDetails" />
+              <app xsi:type="SpecificApp" publisherId="CBA" appId="CommBank.AppStore.AppDependencies" />
+              <app xsi:type="SpecificApp" publisherId="CBA" appId="CommBank.AppStore.AppOperations" />
+            </permittedConsumers>
+          </dataService>
+        </exposes>
+    </app>
+</manifest>

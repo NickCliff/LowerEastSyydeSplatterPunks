@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<manifest xmlns="http://commbank.com.au/appstore/manifest.v1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <app>
+    <appId>CommBank.HelloWorld</appId>
+    <appName>Hello World</appName>
+    <version>1.0.0</version>
+    <publisherId>CBA</publisherId>
+    <publisherName>Commonwealth Bank of Australia</publisherName>
+    <description>My First App</description>
+    <versionNotes></versionNotes>
+    <appIcon></appIcon>
+    <screenshots>
+    </screenshots>
+    <themes>
+      <container>
+        <supports name="Sections" />
+        <supports name="Typography" />
+        <supports name="Form" />
+      </container>
+    </themes>
+    <exposes>
+      <ui interfaceId="ContainerLaunch" interfaceVersion="1" resolvesTo="~/Default.html">
+        <parameters></parameters>
+        <permittedConsumers>
+          <app xsi:type="AnyApp"/>
+          <container xsi:type="AnyContainer"/>
+          <user xsi:type="UserAnonymous"/>
+        </permittedConsumers>
+      </ui>
+    </exposes>
+  </app>
+</manifest>

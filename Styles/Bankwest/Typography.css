@@ -1,0 +1,92 @@
+﻿html {
+     font-size:100%; /* for IE */
+}
+body {
+    font-family: Arial, Sans-Serif;
+    font-size:1em;
+}
+body.big {
+    font-size: 1.2em;   
+}
+
+/* Headings 
+------------------ */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: normal;
+    color: #FFFFFF;
+}
+h1 {
+    font-size:1.312em;
+}
+h2 {
+    font-size:2em;
+}
+h3 {
+    font-size:1.6em;
+}
+h4 {
+    font-size:1.4em;   
+}
+h5 {
+    font-size:1.312em;
+}
+h6 {
+    font-size:0.812em;
+}
+
+.strong {
+    font-weight:bold;    
+} 
+
+/* FORM CONTROLS */
+a {
+    color: #FFFFFF;
+}
+a:hover{
+    color: #FFFFFF;    
+} 
+button {
+    color: #FFFFFF;
+} 
+label{} 
+input{}
+textarea{}
+p{}
+
+td {} 
+thead{} /* Groups the header content in a table */
+li{} /* Defines a list item */
+
+
+/* WIERD SYMATIC TAGS */
+abbr {} /* Defines an abbreviation */
+acronym{} /* Defines an acronym */
+address{} /* Defines contact information for the author/owner of a document */
+blockquote{} /* Defines a long quotation */
+cite{} /* Defines a citation */
+code{} /* Defines a piece of computer code */
+dd{} /* Defines a description of an item in a definition list */
+del{} /* Defines text that has been deleted from a document */
+dfn{} /* Defines a definition term */
+dl{} /* Defines a definition list */
+dt{} /* Defines a term (an item) in a definition list */
+caption{} /* Defines a table caption */
+ins{} /* Defines text that has been inserted into a document */
+kbd{} /* Defines keyboard input */
+legend{} /* Defines a caption for a fieldset element */
+q{} /* Defines a short quotation */
+samp{} /* Defines sample output from a computer program */
+tt{} /* Defines teletype text */
+var{} /* Defines a variable */
+
+/* PSEUDO FORMATTING */
+b{} /* Defines bold text */
+big{} /* Defines big text */
+em{} /* Defines emphasized text */
+i{} /* Defines italic text */
+small{} /* Defines smaller text */
+span{} /* Defines a section in a document */
+
+sub{} /* Defines subscripted text */
+sup{} /* Defines superscripted text */

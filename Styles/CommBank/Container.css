@@ -1,0 +1,851 @@
+﻿html, #Content {
+	height: 100%;
+	font-size:100%; /* for IE */
+}
+body {
+	margin: 0;
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+	font-family: Arial, Sans-Serif;
+	background-color: #666;
+	font-size:1em;
+}
+body.big {
+    font-size: 1.2em;   
+}
+iframe {
+    border: none;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+#Frame {
+	position: relative;
+	top:0;
+	height: 100%;
+	min-height: 100%;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.ButtonSkinSmall {
+	font-size: 0.687em;
+	color: #FC0;
+	text-decoration: underline;
+}
+#Frame.Large .ButtonSkinSmall {
+	color: #FFF;
+	text-decoration: none;
+}
+.ButtonSkinLarge {
+	font-size: 0.875em;
+	color: #FFF;
+	text-decoration: none;
+}
+#Frame.Large .ButtonSkinLarge {
+	color: #FC0;
+	text-decoration: underline;
+}
+
+.Frame #Body > div {
+	display: none;
+}
+
+#Frame.Authenticated #Header #HeaderRight {
+	background: url(../images/shield.png) no-repeat 160px 10px;
+}
+
+#Header #Tools button.FrameButton {
+	margin-left: 4px;
+}
+button.FrameButton {
+	text-align: center;
+	padding: 0px;
+	cursor: pointer;
+	font-size: 0px;
+	font-weight: bold;
+	background-color: #000;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(129,129,129)), color-stop(0.5, rgb(69,69,69)), color-stop(0.5, rgb(49,49,49)), color-stop(1, rgb(51,51,51)));
+	background: -moz-linear-gradient(top, rgb(87,87,87), rgb(28,28,28), rgb(87,87,87)) no-repeat 0 0;
+	border-top: solid 1px #4B4B4B;
+	border-right: solid 1px #3A3A3A;
+	border-bottom: solid 1px #5B5B5B;
+	border-left: solid 1px #3A3A3A;
+	color: #FFF;
+	text-shadow: 1px -1px 1px #000;
+	border-radius: 2px;
+}
+button.FrameButton > div.FrameButton {
+	font-size: 13px;
+	padding: 0px 11px;
+	height: 29px;
+	line-height: 29px;
+	border-top: solid 1px #292929;
+	border-right: solid 1px #1D1D1D;
+	border-bottom: solid 1px #131313;
+	border-left: solid 1px #1E1E1E;
+	border-radius: 2px;
+}
+
+
+.LoginButtons {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#666), to(#333));
+	-webkit-box-shadow: 0px -2px 1px 0px rgba(0, 0, 0, 0.2);
+	-webkit-border-radius: 0 0 10px 10px;
+	border-radius: 0 0 10px 10px;
+}
+.LoginButtons > button, .LoginButtons > a {
+	width: 240px;
+	height: 70px;
+	color: #FFF;
+	float: left;
+	border: none;
+	font-weight: bold;
+	border-left: solid 1px #787878;
+	border-right: solid 1px #515151;
+	background-color: transparent;
+	background-position: 18px 17px;
+	background-repeat: no-repeat;
+}
+.LoginButtons > a:hover, .LoginButtons > a:visited {
+	color: #FFF;
+}
+.LoginButtons > button > span, .LoginButtons > a > span {
+	display: inline-block;
+	margin-left: 68px;
+	text-align: left;
+	font-size: 13px;
+}
+.LoginButtons > a > span {
+	margin-top: 17px;
+	margin-left: 74px;
+}
+.LoginButtons > button span.Link, .LoginButtons > a span.Link {
+	color: #FC0;
+	font-size: 16px;
+}
+.LoginButtons > button.ButtonFirst, .LoginButtons > a.ButtonFirst {
+	border-left: none;
+}
+.LoginButtons > button.ButtonLast, .LoginButtons > a.ButtonLast {
+	border-right: none;
+}
+.LoginButtons > a#ButtonLogoffNetbank {
+	background-image: url(../images/icon_logoff_netbank.png);
+}
+.LoginButtons > a#ButtonLogoffCommBank {
+	background-image: url(../images/icon_logoff_commbank.png);
+}
+
+#Body {
+	position: relative;
+	min-height: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#Body > div {
+	height: 100%;
+}
+
+#Main {
+	position: relative;
+	height: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	-webkit-box-shadow: -10px 0 10px -10px rgba(0,0,0,0.8);
+}
+#Mask {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+#Frame.Mask #Mask {
+	display: block;
+}
+#Frame #Mask #MaskContent {
+	height: 100%;
+}
+#Frame #Mask #MaskContent #MaskDark {
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	-webkit-border-bottom-left-radius: 12px;
+	border-bottom-left-radius: 12px;
+	-webkit-border-bottom-right-radius: 12px;
+	border-bottom-right-radius: 12px;
+	position: relative;
+}
+#Frame #Mask #MaskContent #MaskDark #MaskPadding {
+	height: 40%;
+}
+#Frame #Mask #MaskContent #MaskDark #MaskImage {
+	width: 57px;
+	height: 58px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url(../images/spinner.png);
+	background-position:bottom center;
+	background-repeat: no-repeat;
+}
+#Frame #Mask #MaskContent #MaskDark #MaskMessage {
+	padding-top: 10px;
+	text-align: center;
+	color: #FFF;
+	text-shadow: 1px -1px 1px #000;
+	font-weight: bold;
+}
+#BodyMask {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 49px;
+	z-index: 1000;
+}
+#Frame.Mask #BodyMask {
+	display: block;
+}
+.Spinner {
+	-webkit-animation-name: spin;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes spin {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(360deg); }
+}
+
+.Animated {
+	transition: height;
+	transition-duration: 0.2s;
+	transition-timing-function: linear;
+}
+
+#Content {
+    width: auto;
+}
+
+div.ContentSection div.ContentButtons button {
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	padding: 0 30px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+	text-shadow: 1px 1px 1px #FFF;
+	background-color: #FC0;
+	border: none;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+div.ContentSection div.ContentButtons button:disabled, #LoginButtons button:disabled {
+	color: #999;
+	background-color: #CCC;
+	text-shadow: 1px 1px 1px #FFF;
+}
+div.ContentSection div.ContentButtons button > div.Spinner,
+ #LoginButtons button > div.Spinner {
+	width: 35px;
+	height: 35px;
+	background-image: url(../images/spinner_button.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	float: left;
+	display: none;
+}
+div.ContentSection div.ContentButtons button.Spinning {
+	padding-left: 4px;
+}
+div.ContentSection div.ContentButtons button.Spinning > div.Spinner, #LoginButtons button.Spinning > div.Spinner {
+	display: block;
+}
+
+.LoginBox {
+	color: #FFF;
+	margin-left: auto;
+	margin-right: auto;
+	display: table;
+}
+.LoginBox .LoginShadow {
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.5);
+}
+.LoginBox .LoginShadow .LoginForm {
+	/*display: table;*/
+	color: #000;
+	padding: 68px 40px 10px 40px;
+	background-image: url(../images/banner_logon.png);
+	background-position: 44px 20px;
+	background-repeat: no-repeat;
+	border: solid 1px #CCC;
+	background-color: #FFF;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+
+/* LOGIN TARGETS
+--------------------------- */
+#ContentLogin {
+	padding: 11.25em 0 0 0;
+    height: 100%;
+    background-color: #FFF;
+}
+#LoginForm.Password #LoginFormToken, 
+#LoginForm.Password #LoginCancel {
+	display: none;
+}
+#LoginForm.Token #LoginFormPassword {
+	display: none;
+}
+#ContentLogoff, #BodyLogoffFooter {
+	display: none;
+}
+
+#ContentLogoff div.Left {
+	float: left;
+}
+
+#LoginButtons button.Spinning {
+	padding-left: 1.875em; /* 70px - spinner width 40px */
+}
+#LoginButtons button > div.Spinner {
+	width: 2.5em;
+	height: 2.5em;
+}
+
+/* THEMING 
+------------------------------ */
+.container { }
+
+/* CONTAINER SECTIONS
+---------------------------- */
+.container .section {
+  /* min-width: 23.75em; */
+}
+.container .spinner {
+	-webkit-animation-name: spin;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes spin {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(360deg); }
+}
+
+/* HEADER 
+-------------------------- */
+.container .content,
+.container .header {
+    max-width: 43.75em;
+    margin: 0 auto;
+    -webkit-box-sizing: border-box;
+}
+.container .header {
+    background:url(images/commbank_logo.png) no-repeat scroll left center transparent;
+    height: 5.312em;
+    text-transform: capitalize;
+    color:#FFF;
+}
+.container .header h1 {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    font-weight: normal;
+}
+.container .content {
+    background-color: #FFF;
+    padding: 0 0.625em; 
+}
+
+/* FOOTER 
+-------------------------- */
+.container .footer {
+	position:absolute;
+	bottom:0;
+	left:0;
+	height:3.125em;
+	line-height:3.125em;
+	color: #FFF;
+	text-align:center;
+	width:100%;
+}
+.container .footer a {
+	padding:0 0.625em;
+	color:#fff;
+	font-size:0.812em;
+	line-height:0.937em;
+	text-decoration:none;
+	display:inline-block;
+}
+.container .footer a:hover {
+	text-decoration:underline;
+}
+.container .footer #NetbankLink {
+	padding-left:0;
+	border-right:1px solid #eee;
+}
+.container .footer .securityLink {
+	background: url(images/shield.png) no-repeat center center;
+	width: 1.375em;
+	height: 1.625em;
+	text-indent:-1000px;
+	overflow: hidden;
+	position: relative;
+	top: -0.375em;
+	padding: 0;
+}
+.container .footer .copyright {
+	font-size:0.812em;
+	padding-left:0.625em;
+}
+
+/* FORM OVERRIDES (Form.css)
+-------------------------- */
+#LoginFormToken {
+	background-image:url(images/token.png);
+	background-position:right top;
+	background-repeat:no-repeat;
+}
+.container .form .header h1 {
+    visibility:visible;
+}
+.container .form .header {
+    background-image:none;
+    height: auto;
+    padding: 0.625em;
+    background-color: #DDD;
+}
+.container .form .input .checkgroup {
+    padding:0;
+    margin: 0;
+}
+.container .form label.italics {
+    font-style: italic;
+}
+.container .form .sub {
+  font-size: 0.875em;
+}
+.container .form {
+    border:none;
+}
+.container .form .content {
+    border: 1px solid #DDD;
+}
+/* INSTRUCTION LIST 
+--------------------------------- */
+ol.instructional, ol.instructional li {
+	padding:0;
+	list-style:none;
+}
+ol.instructional {
+	display:block;
+	margin:0.938em 0;
+	width: 50%;
+}
+ol.instructional li {
+	line-height:0.938em;
+	font-size:0.813em;
+	display:block;
+	margin:8px 0;
+	padding-left:28px;
+}
+ol.instructional li em {
+	background:#000;
+	color:#fff;
+	text-align:center;
+	display:block;
+	position:relative;
+	left:-1.75em;
+	top:2px;
+	width:1.25em;
+	height:1.25em;
+	-webkit-border-radius:1.25em;
+	border-radius:1.25em;
+	font-style:normal;
+	font-size:11px;
+	line-height:1.25em;
+	font-weight:bold;
+	margin-bottom:-1.25em;
+}
+
+
+/* NAVIGATION 
+------------------------------ */
+.container .navigation {
+	position: relative;
+	height: 100%;
+	float:left;
+	height: 100%;
+	width: 3.75em;
+    background-color: #1C1C1C;
+    -webkit-box-shadow: inset -20px 0 20px -20px rgba(0,0,0,0.5);
+}
+.container .navigation .content {
+    padding: 0;
+}
+.container .navigation.navExpanded {
+    width: 18.125em;
+}
+.container.navExpanded .navigation .content ul li {
+    width: 17.5em;
+}
+.container .collapsible,
+.container .navigation .content ul li { 
+    -webkit-transition-property: width;
+	-webkit-transition-duration: 300ms;
+	-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}  
+
+/* NAVIGATION HEADER/FOOTER 
+------------------------------*/
+.container .navigation .header {
+    position:relative;
+    padding: 0.938em;
+    border-bottom: 1px solid #575757;
+    -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;   
+	box-sizing: border-box;        
+	-webkit-box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.5);
+	box-shadow: inset -20px 0 20px -20px rgba(0,0,0,0.5);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(87,87,87)), color-stop(1, rgb(28,28,28))) no-repeat 0 0;
+	background: -moz-linear-gradient(top, rgb(87,87,87), rgb(28,28,28), rgb(87,87,87)) no-repeat 0 0;
+	-webkit-border-top-left-radius: 0.625em;
+    -webkit-border-top-right-radius: 0.625em;
+    -moz-border-radius-topleft: 0.625em;
+    -moz-border-radius-topright: 0.625em;
+    border-top-left-radius: 0.625em;
+    border-top-right-radius: 0.625em;
+}
+.container .navigation .header,
+.container .navigation .footer {
+    height: 3.750em;
+    background-color: #EEEEEE;
+}
+.container .navigation .footer {
+	display:none;
+}
+.container .navigation .footer .more {
+    color: #FFF;
+    padding: 1.25em;
+    float:right;
+}
+.container .navigation .footer .more:hover {
+    cursor:pointer;
+} 
+.container .navigation .footer .more:after {
+   
+}
+.container .navigation .footer .icon {
+    
+}
+
+/* NAVIGATION LIST 
+------------------------------*/
+.container .navigation .content {
+    background-color: #1C1C1C;   
+}
+.container .navigation .content ul {
+    padding:0;
+    margin: 0;
+    max-width: 17.500em;
+}
+.container .navigation .content ul li {
+    list-style: none;
+    background-color: #FFC700;
+    height: 3.438em;
+    display:table;
+    width: 3.125em;
+    -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box;        
+	border-radius: 0.625em;
+    margin: 0.313em 0 0 0.313em;
+    
+}
+.container .navigation.navExpanded .content ul li {
+    width: 17.500em;
+}
+.container .navigation .content ul li div {
+    -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box;         
+}
+.container .navigation .content ul li .icon {
+    padding: 1.25em;
+    width: 2.500em;
+    display:table-cell;
+    vertical-align:middle;
+}
+.container .navigation.navExpanded .content ul li .icon {
+    
+}
+
+.container .column {
+    display:none;
+}
+.container .navigation.navExpanded .column { 
+    display:table-cell;
+    vertical-align:middle;
+    padding-left: 0.625em;
+    position:relative;
+}
+.container .navigation.navExpanded .column:after {
+    content:url(images/arrow_next_sm.png) no-repeat scroll center center transparent;
+    position:absolute;
+    right: 0.625em;
+    top: 1.25em;
+}
+.container .navigation .content ul li .primary {
+    width: 100%;
+    font-size:0.938em;
+    font-weight:bold;
+}
+.container .navigation .content ul li .secondary {
+    color: #666;
+    font-size:0.750em;
+    margin-top:0.375em;
+}
+.container .navigation .content ul li .primary, 
+.container .navigation .content ul li .secondary {
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 200ms;
+	-webkit-transition-timing-function: ease-out;
+	-webkit-transition-delay: 250ms;
+}
+
+/* todo change this name */
+.container .navigation .content .AmountDebit:before {
+    content:"- ";
+}
+
+/* SCROLLABLE 
+----------------------------- */
+.container .navigation .scrollable {
+    /* TODO */
+}
+
+/* SELECTABLE LIST
+---------------------------- */
+.container ul.selectable li:hover {
+    cursor: pointer;
+}
+.container .navigation .content ul li.selected {
+    background-color: #FFFFFF;
+}
+
+/* CLICKABLE
+---------------------------- */
+.container .clickable {
+    cursor: pointer;
+}
+
+/* INDICATOR
+---------------------------- */
+.container .navigation .indicator {
+	position:absolute;
+	right: 0.875em;
+	height: 1.813em;
+	width: 2.125em;
+	top: 1em;
+	background: url(images/menu_white_sm.png) no-repeat scroll center center transparent;
+}
+.container .indicator {
+    position: fixed;
+    right: 1.563em;
+    height: 2.813em;
+    width: 1.25em;
+    top: 0.375em;
+    z-index: 10;
+    border-radius: 0.313em;
+}
+.container .indicator div.icon {
+    background: url("images/settings_white_sm.png") no-repeat scroll center center transparent;
+    position: absolute;
+    top: 0.938em;
+    height: 1.25em;
+    width: 1.25em;
+    z-index: 20;
+}
+.container .indicator.expanded div.icon {
+    background: none;
+    margin-left: 1.25em;
+    margin-top: -0.625em;
+}
+.container .indicator div.icon span {
+    display:none;
+}
+.container .indicator.expanded div.icon span {
+    display:block;
+}
+.container .indicator.collapsible .section { 
+    right: -1.25em;
+    position: absolute;
+    overflow: hidden;
+    -webkit-transition-property: height;
+    -webkit-transition-duration: 300ms;
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    margin-top: -0.500em;
+    height: 0px;
+} 
+
+.container .indicator.expanded {
+	background: none;
+}
+
+
+/* SETTINGS/MENU LIST 
+----------------------------*/
+.container .indicator .content {
+    border-radius: 0.313em;
+    margin-bottom: 0.313em;
+    position: relative;
+    top: 0.750em;
+    -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box;
+	background-color: #FFF;
+	cursor:auto;
+	padding: 0;
+} 
+
+.container .indicator .content:first-child {
+     padding: 3.75em 0.625em 0.625em 0.625em;
+}
+.container .indicator .content ul.menu {
+    width: 100%;
+    margin:0;
+    padding:0;
+}
+.container .indicator .content ul.menu li {
+    list-style:none;
+    background-color: #E9E9E9;
+    border-bottom: 1px solid #DEDEDE;
+    -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box; 
+	width:100%;
+	min-width: 17.5em;
+}
+.container .indicator .content ul.menu li:first-child {
+    -webkit-border-top-left-radius: 0.5em;
+    -webkit-border-top-right-radius: 0.5em;
+    -moz-border-radius-topleft: 0.5em;
+    -moz-border-radius-topright: 0.5em;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em; 
+}
+.container .indicator .content ul.menu li:last-child {
+    -webkit-border-bottom-right-radius: 0.5em;
+    -webkit-border-bottom-left-radius: 0.5em;
+    -moz-border-radius-bottomright: 0.5em;
+    -moz-border-radius-bottomleft: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+}
+.container .indicator .content ul.menu li div {
+    padding: 0.937em;
+    line-height: 1.25em;
+}
+.container .indicator .close {
+    display:none;
+} 
+.container .indicator.expanded .close {
+    display:block;
+    position: absolute;
+    top: 0.938em;
+    right: 1.25em;
+}
+.container .indicator .small {
+    font-size: 0.938em;
+}
+.container .indicator .large {
+    font-size: 1.375em;
+}
+
+/* ICONS
+----------------------------- */
+.iconHome {
+    background: url(images/icons/whatsnew.png) no-repeat center;
+}
+.iconAccount {
+    background: url(images/icons/account.png) no-repeat center;
+}	
+.iconAccounts {
+	background: url(images/icons/allaccounts.png) no-repeat center;
+}	
+.iconTransfer {
+    background: url(images/icons/transfer.png) no-repeat center;
+}	
+.iconFeedback {
+    background: url(images/icons/feedback.png) no-repeat center;
+}
+.container .navigation.navExpanded .content ul li .icon.iconHome, 
+.container .navigation.navExpanded .content ul li .icon.iconAccount, 
+.container .navigation.navExpanded .content ul li .icon.iconAccounts, 
+.container .navigation.navExpanded .content ul li .icon.iconTransfer, 
+.container .navigation.navExpanded .content ul li .icon.iconFeedback {
+    display:none;
+}
+
+
+/* MEDIA QUERIES 
+---------------------------------- */
+/* 930px */
+@media all and (max-width: 58.125em) {
+    .container .navigation {
+	    width:3.75em;
+	}
+}
+
+/* 675px */
+@media all and (max-width: 42.188em) {
+    /* remove background from settings */
+    .container .indicator {
+        
+    }    
+}
+
+/* 620px */
+@media all and (max-width: 38.75em) {
+    .container .navigation {
+	    width:0px;
+	}
+	 
+    /* settings menu when container expanded */
+    .container .indicator.navExpanded {
+        right: -28.75em; /* TODO how far + transitioned */
+    }
+    
+    .container .navigation .header {
+        z-index: 1;
+        -webkit-box-shadow:none;
+        padding:0;
+    }
+    .container .navigation .indicator,
+    .container .navigation .indicator.collapso {
+        top: 0.875em;
+        right: -2.813em;
+    }
+}
+
+/* 380px */
+@media all and (max-width: 23.75em) {
+    .container .navigation.navExpanded {
+        width: 14.375em;
+    }
+}

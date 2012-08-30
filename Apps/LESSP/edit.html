@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Lower East Side Splatter Punks</title>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="app">
+      <!-- put the mean as content here -->
+      <div class="header">
+        <h1>Predict</h1>
+      </div>
+      <div class="main">
+        <div class="section">
+          <div class="header">
+            <h5>Make a payment<!-- TODO: JS call here for person's name --></h5>
+          </div>
+          <form class="form">
+            <div class="content">
+              <div class="input">
+                <label for="value">Value</label>
+                <input type="text" placeholder="$20.00" name="value" />
+              </div>  
+              <div class="two-column">  
+                <div class="input">
+                  <label for="from">From</label>
+                  <select name="from">
+                    <option>Acct A</option>
+                  </select>
+                </div>
+                <div class="input">
+                  <label for="to">To</label>
+                  <select name="to">
+                    <option>Acct B</option>
+                  </select>
+                </div>
+              </div>
+              <div class="actions">
+                <div class="secondary">
+                  <div class="checkgroup">
+                    <span>
+                      <input type="checkbox" name="never" value="never" />
+                      <label> Please don't ask me questions like this again <!-- it's creepy --> </label> 
+                    </span>
+                  </div>
+                  <input type="button" value="Cancel" onClick="goCancel()" />
+                </div>
+                <!-- End of cancel -->
+                
+                <div class="primary">
+                  <div class="checkgroup">
+                    <span>
+                      <input type="checkbox" name="regular" value="regular" checked="checked" /> 
+                      <label>Make this a regular transaction on <b>Thursdays</b></label>
+                    </span>
+                  </div>
+                  <input type="submit" value="Transfer" />
+                </div>
+                <!-- end of transfer -->
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- finish with amazingly amazing stuff -->
+    </div>
+          
+      <!-- which JS do i need to include -->
+    <script src="pagebus.js" type="text/javascript"></script>
+    <script src="jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="Framework.js" type="text/javascript"></script>
+    <script src="LESP.js" type="text/javascript"></script>
+  </body>
+</html>

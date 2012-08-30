@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<manifest xmlns="http://commbank.com.au/appstore/manifest.v1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <app>
+        <appId>CommBank.NavigationExample</appId>
+        <appName>Navigation Example</appName>
+        <version>1.0.0</version>
+        <publisherId>CBA</publisherId>
+        <publisherName>Commonwealth Bank of Australia</publisherName>
+        <description>Page 1 to Page 2 and back again</description>
+        <versionNotes></versionNotes>
+        <appIcon></appIcon>
+        <screenshots>
+        </screenshots>
+      <themes>
+        <container>
+          <supports name="Sections" />
+          <supports name="Typography" />
+          <supports name="Form" />
+        </container>
+      </themes>
+      <exposes>
+        <ui interfaceId="ContainerLaunch" interfaceVersion="1" resolvesTo="~/Page1.html">
+            <parameters></parameters>
+            <permittedConsumers>
+              <container xsi:type="AnyContainer"/>
+              <user xsi:type="UserAnonymous"/>
+            </permittedConsumers>
+        </ui>
+      </exposes>
+      <invokes>
+        <ui interfaceId="Hello" use="required">
+          <bindings>
+            <app publisherId="CBA" appId="CommBank.HelloWorld" interfaceId="ContainerLaunch" interfaceVersion="1"/>
+          </bindings>
+        </ui>
+        <ui interfaceId="Bogus" use="optional">
+          <bindings>
+            <app publisherId="CBA" appId="CommBank.NoSuchApp" interfaceId="LaunchMe" interfaceVersion="1"/>
+          </bindings>
+        </ui>
+      </invokes>
+    </app>
+</manifest>

@@ -1,0 +1,411 @@
+﻿html, body {
+    margin:0;
+    padding:0;
+    height: 100%;
+    width: 100%;
+    background-color: #FFF;
+}
+.background {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position:fixed;
+} 
+
+/* APP CONTAINER 
+-------------------------------*/
+.app {
+    background-color: #FFF;
+    margin-top:10.000em;
+}
+.app .header,
+.app .main {
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;   
+	box-sizing: border-box;        
+}
+.app .main {
+    margin: 0 auto;
+    max-width: 52.500em;
+    width: 70%;
+    padding-bottom: 0.625em;
+}
+.app .main .section {
+    margin-top: 0.625em;
+}
+
+/* APP HEADER 
+------------------------------- */
+.app .header {
+    -webkit-box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.5);
+	box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.5);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(87,87,87)), color-stop(1, rgb(28,28,28))) no-repeat 0 0;
+	background: -moz-linear-gradient(top, rgb(87,87,87), rgb(28,28,28), rgb(87,87,87)) no-repeat 0 0;
+	color: #FFF;
+    padding: 1.125em;
+    text-align:center;
+    position:fixed;
+    top:0;
+    width: 100%;
+    z-index: 1;
+    text-transform: Capitalize;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;   
+	box-sizing: border-box; 
+}
+
+/* LISTS
+-------------------- */
+.app .main .content ul {
+    padding:0;
+    margin: 0;
+    width: 100%;
+    background-color: #FFFFFF; 
+}
+.app .main .content ul li {
+    list-style: none;
+    -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box;        
+    padding: 0.938em 1.500em 0.469em 1.500em;
+    border-bottom: 1px solid #EDEDED;
+    border-bottom: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+}
+
+.app .main .content ul li div.title {
+    font-size: 0.750em;
+    color: #666;
+    margin-bottom: 0.468em;
+}
+.app .main .content ul li div {
+    display:inline-block;
+    vertical-align: middle;
+}
+.app .main .content ul li .primary {
+    float:left;
+    margin-right:0.625em;
+    text-transform: capitalize;
+    font-size:0.937em;
+    font-weight: bold;
+}
+.app .main .content ul li .secondary1 {
+    float:left;
+    min-width: 0%;
+    font-size: 0.75em;
+}
+.app .main .content ul li .secondary2 {
+    min-width: 6.250em;
+    font-size: 0.75em;
+}
+
+/* SUBLIST 
+------------------------------ */
+.app .main .content ul li ul li {
+    border:none;
+    padding: 0.469em 0;
+    position:relative;
+    display:block;
+}
+.app .main .content ul li ul li:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; 
+}
+.app .main .content .col {
+    width:80%;
+    line-height: 1.125em; 
+    float:left; 
+    -webkit-box-sizing: border-box; 
+}
+.app .main .content .pull-right {
+    float:right;
+}
+
+/* ACCOUNT LIST
+---------------------------- */
+.app .main .content ul.account li {
+    padding: 1.25em;
+    border-bottom: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+}
+.app .main .content ul.account li:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; 
+}
+.app .main .content ul.account li .col {
+    width: 60%;    
+}
+.app .main .content ul.account li .currency {
+    width: 40%;  
+}
+.app .main .content ul.account li .primary {
+    font-size: 0.938em;
+}
+.app .main .content ul.account li .secondary1 {
+    color: #666;
+    
+}
+
+/* SELECTABLE LIST 
+----------------------------*/
+.app .main .selectable ul li {
+    border-bottom: 1px solid transparent;
+}
+.app .main .selectable ul li .currency:after {
+    content: url(Images/arrow_next_sm.png) no-repeat scroll 0 0 transparent;
+    margin-left: 0.313em;
+    vertical-align:middle;
+}
+.app .main .selectable ul li:hover {
+    cursor: pointer;
+}
+.app .main .selectable ul li.selected {
+    background-color: #eaeaea;
+}
+
+/* CURRENCY
+--------------------------------*/
+.app .main .content .currency {
+    float:left; 
+    font-size: 0.938em;
+    line-height: 0.938em; 
+    -webkit-box-sizing: border-box;  
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+    text-align:right;
+    width:20%;     
+}
+.app .main .section .credit, 
+.app .main .section .debit {
+    font-size: 0.938em;
+    color: #060;
+}
+.app .main .section .debit {
+   color: #C00;
+} 
+.app .main .content .currency.credit:before {
+    content: '$';
+    display:inline-block;
+}
+.app .main .section .currency.debit:before {
+    content:"- $";
+    display:inline-block;
+}
+
+.app .main .content .pull-right {
+    float:right;
+}
+
+/* SECTION HEADER
+-------------------------------*/
+.app .main .section .header {
+    padding: 0.813em;
+    color: #666;
+    background-color: #DDD;
+    position: relative;
+    -webkit-box-shadow: none;
+    background-image: none;
+    text-align: left;
+    border: 1px solid #DDD;
+    z-index: 0;
+    height: auto;
+}
+.app .main .section .header h5 {
+    font-weight:bold;
+}
+
+/* COLLAPSIBLE LIST 
+----------------------------*/
+.app .main .collapsible .content {
+    overflow:hidden;
+}
+.app .main .collapsible .header:hover {
+    cursor:pointer;
+}
+.app .main .collapsible .header h5:after {
+    content: url(Images/arrow_up.png) no-repeat scroll 0 0 transparent;
+    float:right;
+    padding-top: 0.250em;
+    padding-bottom: 0.250em;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-timing-function: ease-out;
+}
+.app .main .collapsible.Collapsed .header h5:after {
+    -webkit-transform:rotate(180deg);
+}
+.app .main .collapsible .content ul.account li.subhead {
+    background-color: #000;
+    margin:0;
+    height: 0.313em;
+    padding: 0;
+}
+
+/* FILTER 
+-----------------------*/
+.app .main .section .criteria {
+    padding: 1.250em;
+    background-color: #DDD;
+}
+.app .main .section .sort {
+    height: 4.063em; 
+    background-color: #DDD;
+    -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box; 
+	padding: 1.688em 0 0.625em 0; 	       
+}
+.app .main .section .sort div {
+    color: #666;
+    font-size: 0.938em;
+    padding: 0.625em 0.500em;
+    float:right;
+    margin-left: 0.125em;
+    text-transform: capitalize;
+}
+.app .main .section .sort div.selected {
+    font-weight: bold;
+    background: url(Images/sortmarker_sm.png) no-repeat scroll center bottom transparent;
+}
+.app .main .section .sort div:hover {
+    cursor:pointer;    
+}
+.app .main .section .sort div.label:hover {
+    cursor:auto;    
+}
+.app .main .section .criteria input {
+    border: none;
+    padding:0.750em 1.125em;
+}
+.app .main .section .criteria label {
+    display: none;
+}
+.app .main .section .criteria .input .postpended {
+    width: 100%;
+    position:relative;
+    display:table;
+    background-color: #FFF;
+    -webkit-border-radius:0.313em;
+    -moz-border-radius: 0.313em;
+    border-radius: 0.313em;
+    border: 1px solid #666;
+}
+.app .main .section .criteria .input .postpended input {
+    width: 100%;
+    display:table-cell;
+    font-size: 1.375em;
+    -webkit-border-top-left-radius: 0.313em;
+    -webkit-border-bottom-left-radius: 0.313em;
+    -moz-border-radius-topleft: 0.313em;
+    -moz-border-radius-bottomleft: 0.313em;
+    border-top-left-radius: 0.313em;
+    border-bottom-left-radius: 0.313em;
+}
+.app .main .section .criteria .input .postpended > div {
+    background: url(Images/search_sm.png) no-repeat scroll center center #FFF;
+    width: 1.563em;
+    padding: 0.813em;
+    -webkit-border-top-right-radius: 0.313em;
+    -webkit-border-bottom-right-radius: 0.313em;
+    -moz-border-radius-topright: 0.313em;
+    -moz-border-radius-bottomright: 0.313em;
+    border-top-right-radius: 0.313em;
+    border-bottom-right-radius: 0.313em;
+    display:table-cell;
+}
+input:focus {outline: none;} 
+
+.app .main .feature {
+    display:none;
+} 
+
+/* MEDIA QUERIES 
+------------------------*/
+/* 850px */
+@media all and (max-width: 53.125em) {
+    .app .main {
+        width: 80%;        
+    }  
+}
+
+/* 690px */
+@media all and (max-width: 43.125em) {
+    .app .main .content ul li .primary {
+	    width: 100%;
+	    margin-right: 0;
+	}
+	.app .main .content ul li .secondary1 {
+	    margin-right: 0.625em;
+	}
+	.app .main .content ul li .secondary2 {
+	    float:left;
+	}
+	.app .main .content ul.account li .currency {
+        padding-top: 0.625em;
+    }
+}
+
+/* 601px */
+@media all and (max-width: 37.562em) {
+    .app {
+	    margin-top: 4.375em;
+	}
+	.app .header {
+        height: 3.750em;
+        padding: 1.125em;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .app .header h1 {
+        font-size: 1.250em;
+    }
+    .app .main {
+        width: 100%;
+	    padding:0 0.625em 0.625em 0.625em;
+	}
+    .app .main .section .header {
+        padding: 1.063em 0.625em;
+    }
+    .app .main .content ul li {
+        padding: 0.938em 0.625em 0.469em 0.625em;
+    }
+    .app .main .content ul.account li {
+        padding: 0.625em;
+    }
+    .app .main .content ul li div.title {
+        margin-bottom: 0;
+    }
+    
+    .app .main .content ul.account .col,
+    .app .main .content .col {
+        width:70%;
+    }
+     .app .main .content .currency {
+        width:30%;
+    }
+}
+
+
+/* HTML5 */
+aside {}
+article{}
+header{}
+footer{}
+hgroup{}
+mark{}
+meter{}
+nav{}
+section{}
+figure{}
+figcaption{}
+summary{}

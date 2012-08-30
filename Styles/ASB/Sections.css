@@ -1,0 +1,402 @@
+﻿html, body {
+    margin:0;
+    padding:0;
+    height: 100%;
+    width: 100%;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position:fixed;
+} 
+
+/* APP CONTAINER 
+-------------------------------*/
+.app {
+    padding-top: 6.25em;
+}
+.app .header,
+.app .main {
+    margin: 0 auto;
+    max-width: 52.5em;
+    width: 70%;
+    -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;   
+	box-sizing: border-box;  
+	padding-bottom: 0.625em;       
+}
+.app .main .section {
+    margin-top: 0.625em;
+}
+
+/* APP HEADER 
+------------------------------- */
+.app .header {
+    background-color: #FFC700;
+    height: 6.563em;
+    padding: 1.937em 0 1.5em 1.5em;
+    z-index: 1;
+}
+
+/* LISTS
+-------------------- */
+.app .main .content ul {
+    padding:0;
+    margin: 0;
+    width: 100%;
+    
+}
+.app .main .content ul li {
+    list-style: none;
+    -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box;         
+    padding: 0.937em 1.5em 0.468em 1.5em;
+    border-bottom: 0.0625em dotted #4d4d4d;
+    background-color: #FFFFFF; 
+}
+.app .main .content ul li.selected {
+    background-color:#EAEAEA;
+}
+.app .main .content ul li:last-child {
+    border-bottom: none;
+}
+.app .main .content ul li div.title {
+    font-size: 0.750em;
+    color: #666;
+    margin-bottom: 0.468em;
+}
+/* need this? */
+.app .main .content ul li div {
+    display:inline-block;
+    vertical-align: middle;
+}
+.app .main .content ul li .primary {
+    float:left;
+    margin-right:0.625em;
+    text-transform: capitalize;
+    font-size: 0.938em;
+}
+.app .main .content ul li .secondary1 {
+    float:left;
+    min-width: 0%;
+    font-size: 0.750em;
+}
+.app .main .content ul li .secondary2 {
+    min-width: 6.25em;
+    font-size: 0.750em;
+}
+
+/* SUBLIST 
+------------------------------ */
+.app .main .content ul li ul li {
+    border:none;
+    padding: 0.468em 0;
+    position:relative;
+    display:block;
+}
+.app .main .content ul li ul li:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; 
+}
+.app .main .content .col {
+    width:80%;
+    line-height: 1.125em; 
+    float:left; 
+    -webkit-box-sizing: border-box; 
+}
+
+/* ACCOUNT LIST
+---------------------------- */
+.app .main .content ul.account li {
+    padding: 1.5em;
+}
+.app .main .content ul.account li:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; 
+}
+.app .main .content ul.account li .col {
+    width: 60%;    
+}
+.app .main .content ul.account li .currency {
+    padding-top: 0.625em;
+    width: 40%;   
+}
+.app .main .content ul.account li .primary {
+    width: 100%;
+    margin-bottom: 0.312em;
+}
+.app .main .content ul.account li .secondary1 {
+    color: #666;
+}
+
+/* SELECTABLE LIST 
+----------------------------*/
+.app .main .selectable ul li {
+    border-bottom: 0.0625em solid transparent;
+    margin-bottom: 0.125em;
+    position:relative;
+}
+.app .main .selectable ul li .currency:after {
+    content: url(Images/arrow_next.png) no-repeat scroll 0 0 transparent;
+    margin-left: 0.312em;
+    height: 0.812em;
+    display: inline-block;
+}
+.app .main .selectable ul li:hover {
+    cursor: pointer;
+}
+.app .main .selectable ul li.selected {
+    background-color: #eaeaea;
+}
+
+/* CURRENCY
+--------------------------------*/
+.app .main .content .currency {
+    float:left; 
+    -webkit-box-sizing: border-box;  
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+    text-align:right;
+    width:20%;   
+}
+.app .main .content .currency.credit:before {
+    content: '$';
+    display:inline-block;
+}
+.app .main .section .currency.debit:before {
+    content:"- $";
+    display:inline-block;
+}
+
+.app .main .content .pull-right {
+    float:right;
+}
+
+/* SECTION HEADER
+-------------------------------*/
+.app .main .section .header {
+    background-color: #242424;
+    padding: 1.063em 1.500em;
+    position:relative;
+    color:#FFF;
+    -webkit-box-sizing: border-box;
+    height: 3.437em;
+    width: 100%;
+    z-index: 0;
+}
+.app .main .section .header h5 {
+    font-weight:normal;  
+}
+
+/* COLLAPSIBLE LIST 
+----------------------------*/
+.app .main .collapsible .content {
+    overflow:hidden;
+}
+.app .main .collapsible .header:hover {
+    cursor:pointer;
+}
+.app .main .collapsible .header h5:after {
+    content: url(Images/arrow_up.png) no-repeat scroll 0 0 transparent;
+    float:right;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-timing-function: ease-out;
+}
+.app .main .collapsible.Collapsed .header h5:after {
+    -webkit-transform:rotate(180deg);
+}
+.app .main .collapsible .content ul.account li.subhead {
+    background-color: #000;
+    margin:-0.125em 0 0 0;
+    height: 0.312em;
+    padding: 0;
+}
+
+/* FILTER 
+-----------------------*/
+.app .main .section .criteria {
+    background-color: #242424;
+    padding: 1.25em;
+    margin-bottom: 0.625em;
+}
+.app .main .section .sort {
+    height: 2.375em; 
+    -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box; 
+}
+.app .main .section .sort div {
+    background-color: #FFC700;
+    padding: 0.625em 0.937em;
+    float:right;
+    margin-left: 0.125em;
+}
+.app .main .section .sort div.selected {
+    background-color: #fff !important; 
+}
+.app .main .section .sort .label,
+.app .main .section .criteria label {
+    display:none;
+}
+.app .main .section .sort div:hover {
+    cursor:pointer;    
+}
+.app .main .section .sort div.label:hover {
+    cursor:auto;    
+}
+.app .main .section .criteria input {
+    -webkit-border-radius: 0.312em;
+    border-radius: 0.312em;
+    border: none;
+    padding: 0.875em 0.625em;
+}
+.app .main .section .criteria .input .postpended {
+    width: 100%;
+    position:relative;
+    display:table;
+    background-color: #FFF;
+    -webkit-border-radius: 0.312em;
+    -moz-border-radius: 0.312em;
+    border-radius: 0.312em;
+}
+.app .main .section .criteria .input .postpended input {
+    width: 100%;
+    display:table-cell;
+    -webkit-border-top-left-radius: 0.312em;
+    -webkit-border-bottom-left-radius: 0.312em;
+    -moz-border-radius-topleft: 0.312em;
+    -moz-border-radius-bottomleft: 0.312em;
+    border-top-left-radius: 0.312em;
+    border-bottom-left-radius: 0.312em;
+}
+.app .main .section .criteria .input .postpended > div {
+    background: url(Images/search_sm.png) no-repeat scroll center center #FFF;
+    width: 1.562em;
+    padding: 0.812em;
+    -webkit-border-top-right-radius: 0.312em;
+    -webkit-border-bottom-right-radius: 0.312em;
+    -moz-border-radius-topright: 0.312em;
+    -moz-border-radius-bottomright: 0.312em;
+    border-top-right-radius: 0.312em;
+    border-bottom-right-radius: 0.312em;
+    display:table-cell;
+}
+input:focus {outline: none;} 
+
+.app .main .feature {
+    display:none;
+} 
+
+/* MEDIA QUERIES 
+------------------------*/
+/* 850px */
+@media all and (max-width: 53.125em) {
+    .app .header, .app .main {
+        width: 80%;        
+    }  
+}
+
+/* 690px */
+@media all and (max-width: 43.125em) {
+    .app .main .content ul li .primary {
+	    width: 100%;
+	    margin-right: 0;
+	}
+	.app .main .content ul li .secondary1 {
+	    margin-right: 0.625em;
+	}
+	.app .main .content ul li .secondary2 {
+	    float:left;
+	}
+}
+
+/* 601px */
+@media all and (max-width: 37.562em) {
+    .app {
+	    padding-top: 3.75em;
+	}
+	.app .header, .app .main {
+        width: 100%;        
+    }  
+	.app .header {
+        height: 3.75em;
+        padding:1.125em;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    .app .header h1 {
+        font-size: 1.25em;
+    }
+    .app .main {
+	    padding: 0 0.625em 0.625em 0.625em;
+	}
+    .app .main .section .header {
+        padding: 1.062em 0.625em;
+        text-align: left;
+        position:relative;
+    }
+    .app .main .content ul li {
+        padding: 0.937em 0.625em 0.468em 0.625em;
+    }
+    .app .main .content ul.account li {
+        padding: 0.625em;
+    }
+    .app .main .content ul li div.title {
+        margin-bottom: 0;
+    }
+}
+
+/* 480px */
+@media all and (max-width: 30em) {
+    .app .main .content ul.account .col,
+    .app .main .content .col {
+        width:70%;
+    }
+     .app .main .content .currency {
+        width:30%;
+    }
+}
+
+/* 380px */
+@media all and (max-width: 23.75em) {
+    .app .main .content .col {
+       width: 60%;
+    }
+    .app .main .content .currency {
+        width:40%;
+    }
+    .app .main .content ul.account li .col {
+        width: 52%;
+    }
+    .app .main .content ul.account li .currency {
+        width: 48%;
+    }
+}
+
+/* HTML5 */
+aside {}
+article{}
+header{}
+footer{}
+hgroup{}
+mark{}
+meter{}
+nav{}
+section{}
+figure{}
+figcaption{}
+summary{}

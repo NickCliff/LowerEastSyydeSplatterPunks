@@ -1,0 +1,1726 @@
+﻿html {
+	height: 100%;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix {
+	zoom: 1;
+}
+.floatRight {
+	float: right;
+}
+* html .clearfix {
+	height: 1%;
+}
+.clearfix {
+	display: block;
+}
+body {
+	margin: 0;
+	font-family: Helvetica, Arial;
+	background-color: #666;
+	overflow: hidden;
+	position: relative;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+}
+/*body, body * {
+	-webkit-transition-timing-function: default;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transform: translate3d(0,0,0) rotate(0) scale(1);
+}*/
+table {
+	border-spacing: 0px 0px;
+}
+button {
+	cursor: pointer;
+}
+button:disabled {
+	cursor: auto;
+}
+input {
+	font-size: 15px;
+}
+.Scrollbar {
+	background: -webkit-gradient(linear, 0 0, 100% 0, from(#f00), to(#900));
+	border: 1px solid #800;
+	-webkit-background-clip: padding-box;
+	-webkit-box-sizing: border-box;
+	-webkit-border-radius: 4px;
+	-webkit-box-shadow: inset 1px 1px 0 rgba(255,255,255,0.5);
+}
+#Frame {
+	background-color: #333;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#1D1D1D), to(#333));
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	position: relative;
+	top:0;
+	height: 100%;
+	min-height: 100%;
+	width: 100%;
+	min-width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+	/*height: 748px;*/
+	/*-webkit-box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, 0.4);*/
+}
+/*#Frame.Authenticated {
+	background-image:
+		-webkit-gradient(linear, left top, left bottom, from(#FFF), to(#FFF)),
+		-webkit-gradient(linear, left top, left bottom, from(#1D1D1D), to(#333));
+	background-position: 330px 50px, 0 0;
+	background-size: 684px 679px, 100% 100%;
+	background-repeat: no-repeat;
+}*/
+#Frame.Large {
+	font-size: 1.3em; /* TODO: ?? */
+}
+.ButtonSkinSmall {
+	font-size: 11px;
+	color: #FC0;
+	text-decoration: underline;
+}
+#Frame.Large .ButtonSkinSmall {
+	color: #FFF;
+	text-decoration: none;
+}
+.ButtonSkinLarge {
+	font-size: 14px;
+	color: #FFF;
+	text-decoration: none;
+}
+#Frame.Large .ButtonSkinLarge {
+	color: #FC0;
+	text-decoration: underline;
+}
+
+#Header {
+}
+
+.Header {
+	height: 49px;
+	background-color: #333;
+	border-top: solid 1px #7E7E7E;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(87,87,87)), color-stop(1, rgb(28,28,28))) no-repeat 0 0;
+	background: -moz-linear-gradient(top, rgb(87,87,87), rgb(28,28,28), rgb(87,87,87)) no-repeat 0 0;
+	border-bottom: solid 1px #424242;
+	position: relative;
+	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
+	z-index: 1; /* Ensure shadow on top of content */
+}
+
+.Header button {
+	margin-top: 9px;
+}
+.Frame #Body > div {
+	display: none;
+}
+.Frame.Unauthenticated .Header .Authenticated {
+/*	display: none; */
+}
+button.FrameButton {
+	text-align: center;
+	padding: 0px;
+	cursor: pointer;
+	font-size: 0px;
+	font-weight: bold;
+	background-color: #000;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(129,129,129)), color-stop(0.5, rgb(69,69,69)), color-stop(0.5, rgb(49,49,49)), color-stop(1, rgb(51,51,51)));
+	background: -moz-linear-gradient(top, rgb(87,87,87), rgb(28,28,28), rgb(87,87,87)) no-repeat 0 0;
+	border-top: solid 1px #4B4B4B;
+	border-right: solid 1px #3A3A3A;
+	border-bottom: solid 1px #5B5B5B;
+	border-left: solid 1px #3A3A3A;
+	color: #FFF;
+	text-shadow: 1px -1px 1px #000;
+	border-radius: 2px;
+}
+button.FrameButton > div.FrameButton {
+	font-size: 13px;
+	padding: 0px 11px;
+	height: 29px;
+	line-height: 29px;
+	border-top: solid 1px #292929;
+	border-right: solid 1px #1D1D1D;
+	border-bottom: solid 1px #131313;
+	border-left: solid 1px #1E1E1E;
+	border-radius: 2px;
+}
+
+.Header > div {
+	height: 100%;
+	display: inline-block;
+	/* position: absolute; */
+}
+
+.HeaderLeft {
+	position: relative;
+	text-align: left;
+	left: 0px;
+}
+
+.HeaderCenter {
+	position: relative;
+	text-align: center;
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 49px;
+	color: #FFF;
+	text-shadow: 1px -1px 1px #000;
+}
+
+.HeaderRight {
+	position: absolute;
+	text-align: right;
+	width: 200px;
+	right: 0px;
+	font-size: 12px;
+	z-index: 2;
+}
+#Frame.Authenticated #Header #HeaderRight {
+	background: url(../images/shield.png) no-repeat 160px 10px;
+}
+#ButtonLogoff {
+	margin-right: 56px;
+}
+
+#Header #Tools button.FrameButton {
+	margin-left: 4px;
+}
+#ContentBookmark, #ContentLogoff {
+	padding-top: 55px;
+	display: none;
+}
+
+#ContentLogin {
+	padding-top:45px;
+}
+
+#LoginMessage {
+	width: 402px;
+	padding-bottom: 10px;
+}
+span.LogoffMessage {
+	display: block;
+	font-size: 14px;
+}
+span.LogoffMessage.Large {
+	font-size: 22px;
+	padding: 4px 0 8px 0;
+}
+span.LogoffMessage.Bold {
+	font-weight: bold;
+}
+div.LoginForm div.Spinner {
+	width: 35px;
+	height: 35px;
+	background-image: url(../images/spinner_yellow.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	float: left;
+}
+#LoadingMessageText {
+	line-height: 35px;
+}
+
+div.Footer {
+	position:absolute;
+	bottom:0;
+	left:0;
+	height:50px;
+	line-height:50px;
+	color:#fff;
+	text-align:center;
+	width:100%;
+}
+div.Footer a {
+	padding:0 10px;
+	color:#fff;
+	font-weight:bold;
+	font-size:13px;
+	line-height:15px;
+	text-decoration:none;
+	display:inline-block;
+}
+div.Footer a:hover {
+	text-decoration:underline;
+}
+div.Footer #NetbankLink {
+	padding-left:0;
+	border-right:1px solid #eee;
+}
+div.Footer .SecurityLink {
+	background: url(../images/shield.png) no-repeat center center;
+	width: 22px;
+	height: 26px;
+	text-indent:-1000px;
+	overflow: hidden;
+	position: relative;
+	top: -6px;
+	padding: 0;
+}
+div.Footer .CopyrightMessage {
+	font-size:13px;
+	padding-left:10px;
+}
+
+.LoginButtons {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#666), to(#333));
+	-webkit-box-shadow: 0px -2px 1px 0px rgba(0, 0, 0, 0.2);
+	-webkit-border-radius: 0 0 10px 10px;
+	border-radius: 0 0 10px 10px;
+}
+.LoginButtons > button, .LoginButtons > a {
+	width: 240px;
+	height: 70px;
+	color: #FFF;
+	float: left;
+	border: none;
+	font-weight: bold;
+	border-left: solid 1px #787878;
+	border-right: solid 1px #515151;
+	background-color: transparent;
+	background-position: 18px 17px;
+	background-repeat: no-repeat;
+}
+.LoginButtons > a:hover, .LoginButtons > a:visited {
+	color: #FFF;
+}
+.LoginButtons > button > span, .LoginButtons > a > span {
+	display: inline-block;
+	margin-left: 68px;
+	text-align: left;
+	font-size: 13px;
+}
+.LoginButtons > a > span {
+	margin-top: 17px;
+	margin-left: 74px;
+}
+.LoginButtons > button span.Link, .LoginButtons > a span.Link {
+	color: #FC0;
+	font-size: 16px;
+}
+.LoginButtons > button.ButtonFirst, .LoginButtons > a.ButtonFirst {
+	border-left: none;
+}
+.LoginButtons > button.ButtonLast, .LoginButtons > a.ButtonLast {
+	border-right: none;
+}
+.LoginButtons > a#ButtonLogoffNetbank {
+	background-image: url(../images/icon_logoff_netbank.png);
+}
+.LoginButtons > a#ButtonLogoffCommBank {
+	background-image: url(../images/icon_logoff_commbank.png);
+}
+
+#Body {
+	position: relative;
+	min-height: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#Body > div {
+	height: 100%;
+}
+#Navigation {
+	float: left;
+	position: relative;
+	height: 100%;
+	min-height: 100%;
+}
+
+.navTransition {
+	transition-property: width;
+	transition-duration: 300ms;
+	transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+#ButtonExpand {
+	margin-top: 9px;
+	float: right;
+	margin-right: 9px;
+	height: 29px;
+	width: 34px;
+	border: 0;	
+}
+
+.expando {
+	background: url(../icons/close_menu.png) no-repeat center;
+}
+
+.collapso {
+	background: url(../icons/open_menu.png) no-repeat center;
+}
+
+
+button#ButtonExpand.FrameButton > div {
+	border-color: transparent;
+	height: 29px;
+	width: 29px;
+}
+#Main {
+	position: relative;
+	height: 100%;
+	min-height: 100%;
+	overflow: hidden;
+}
+#Mask {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+#Frame.Mask #Mask {
+	display: block;
+}
+#Frame #Mask #MaskContent {
+	height: 100%;
+	padding: 0px 10px 10px 10px;
+}
+#Frame #Mask #MaskContent #MaskDark {
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	-webkit-border-bottom-left-radius: 12px;
+	border-bottom-left-radius: 12px;
+	-webkit-border-bottom-right-radius: 12px;
+	border-bottom-right-radius: 12px;
+	position: relative;
+}
+#Frame #Mask #MaskContent #MaskDark #MaskPadding {
+	height: 40%;
+}
+#Frame #Mask #MaskContent #MaskDark #MaskImage {
+	width: 57px;
+	height: 58px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url(../images/spinner.png);
+	background-position:bottom center;
+	background-repeat: no-repeat;
+}
+#Frame #Mask #MaskContent #MaskDark #MaskMessage {
+	padding-top: 10px;
+	text-align: center;
+	color: #FFF;
+	text-shadow: 1px -1px 1px #000;
+	font-weight: bold;
+}
+#BodyMask {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 49px;
+	z-index: 1000;
+}
+#Frame.Mask #BodyMask {
+	display: block;
+}
+.Spinner {
+	-webkit-animation-name: spin;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes spin {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(360deg); }
+}
+
+.NavigationHeader {
+	color: #FFF;
+	text-align: left;
+	font-size: 18px;
+	padding: 24px 46px 5px 20px;
+}
+#Frame.Large .NavigationHeader {
+	font-size: 22px;
+}
+#NavigationBottom {
+/*	position: absolute;
+	bottom: 16px;
+*/
+	left: 13px;
+	clear: both;
+}
+#ButtonInfo {
+	background-color: Transparent;
+	background-image: url(../images/icon_info.png);
+	background-repeat: no-repeat;
+	border: none;
+	color: Transparent;
+	width: 25px;
+	height: 26px;
+	overflow: hidden;
+	margin-top: 30px;
+	margin-left: 16px;
+}
+.Animated {
+	transition: height;
+	transition-duration: 0.2s;
+	transition-timing-function: linear;
+}
+.Animated.Fade {
+	transition-property: opacity, height;
+	transition-duration: 0.5s, 0.3s;
+	transition-timing-function: linear, linear;
+}
+div.Selector {
+	overflow: hidden;
+	/*margin: 2px 3px 2px 13px;*/
+	margin: 0px 3px 0px 13px;
+}
+div.Selector > div {
+	padding: 1px 0px 1px 0px;
+}
+div.Selector.Hidden {
+	opacity: 0.0;
+	height: 0px !important;
+}
+button.Selector {
+	width: 100%;
+	height: 56px;
+	/*margin: 2px 3px 3px 13px;*/
+	padding: 0px; /* override button default */
+	/*background-image: url(../images/icon_selector.png);
+	background-position: right center;
+	background-repeat: no-repeat;*/
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: #000;
+	background-color: #FC0;
+	border-radius: 10px;
+	border-radius: 10px;
+	border: none;
+}
+/*button.Selector.Locked {
+	background-image: none;
+	cursor: none;
+}*/
+button.Selector.Selected {
+	cursor: default;
+	background-color: #FFF !important; /* TODO: */
+}
+.SelectorContent {
+	margin: 6px 31px 6px 15px;
+	font-size: 16px;
+	line-height: 42px;
+}
+#Frame.Large .SelectorContent {
+	font-size: 18px;
+}
+.SelectorIcon {
+	/*background-position: 13px center; 	background-repeat: no-repeat;*/
+}
+.SelectorIcon .SelectorContent {
+	margin-left: 53px;
+}
+#SelectorTransfer.Selector {
+	/*background-image: url(../images/selector_transfer.png);*/
+	background: url(../images/icon_transfer.png) no-repeat 13px center, url(../images/icon_selector.png) no-repeat right center;
+	background-color: #FC0;
+}
+#SelectorFeedback.Selector {
+	/*background-image: url(../images/selector_feedback.png);*/
+	background: url(../images/icon_feedback.png) no-repeat 13px center, url(../images/icon_selector.png) no-repeat right center;
+	background-color: #FC0;
+}
+button.Selector .BoldRow {
+	font-size: 14px;
+	line-height: 20px;
+	padding: 4px 0px 4px 0px;
+}
+#Frame.Large button.Selector .BoldRow {
+	font-size: 16px;
+}
+button.Selector .LightRow {
+	font-size: 12px;
+	line-height: 13px;
+	font-weight: normal;
+	color: #333;
+	padding: 0px 0px 8px 0px;
+}
+#Frame.Large button.Selector .LightRow {
+	font-size: 15px;
+	line-height: 17px;
+}
+.Selected .LightRow {
+	color: #000;
+}
+#Content {
+	background-color: #FFF;
+	border-left: solid 1px #585858;
+	border-right: solid 1px #585858;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+	height: 100%;
+}
+button.Selector .AccountName {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left;
+	float: left;
+	font-weight: bold;
+	transition: all 350ms ease;
+	
+}
+button.Selector .Balance {
+	text-align: right;
+	padding-left: 4px;
+	float: right;
+}
+button.Selector .AccountNumber {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left;
+	float: left;
+}
+button.Selector .Available {
+	text-align: right;
+	padding-left: 4px;
+	float: right;
+}
+button.Selector .Balance, button.Selector .Available {
+	-webkit-transition: -webkit-transform 0.3s linear;
+}
+button.Selector.Changing .Balance, button.Selector.Changing .Available {
+	-webkit-transform: scale(0);
+}
+#Content .ContentSection {
+	/* display: none; */
+	opacity: 0;
+	position: relative;
+	/*min-height: 664px;*/ /* #Content 664px */
+}
+#Content.Visible .ContentSection {
+	-webkit-transition: opacity 0.2s linear;
+	opacity: 1;
+}
+#Content .ContentSection > div {
+	float: left;
+	width: 100%;
+}
+#Content .ContentSection.ContentSectionMargin > div {
+	padding-top: 36px;
+}
+#Content .ContentSection.ContentSectionButtons > div {
+	padding-bottom: 62px;
+	/*-webkit-transition: bottom 0.05s linear;*/
+}
+#Frame.Input #Content .ContentSection.ContentSectionButtons > div {
+	padding-bottom: 408px;
+}
+#Content .ContentSectionVisible {
+	display: block;
+}
+#Content div.ContentHeading {
+	line-height: 37px;
+	font-size: 12px;
+	margin-bottom: 5px;
+	padding-left: 12px;
+}
+#Content div.ContentHeading span {
+	font-size: 16px;
+	font-weight: bold;
+}
+#Content div.ContentHeading#HeadingRecentTransactions {
+	background-image: url(../images/icon_recenttransactions.png);
+	background-repeat: no-repeat;
+	padding-left: 39px;
+}
+#Content div.ContentHeading#HeadingFutureTransactions {
+	background-image: url(../images/icon_futuretransactions.png);
+	background-repeat: no-repeat;
+	padding-left: 39px;
+}
+#Content table.ContentTable, #Content table.DetailsTable {
+	width: 100%;
+	font-size: 13px;
+	text-align: left;
+}
+#Content div.MarginBottom, #Content div.MarginBottom {
+	margin-bottom: 25px;
+}
+#Frame.Large #Content table.ContentTable, #Frame.Large #Content table.DetailsTable {
+	font-size: 15px;
+}
+table.ContentTable tr th {
+	/*border-bottom: solid 1px #DADADA;*/
+	background-color: #F2F2F2;
+	color: #000;
+	padding: 5px 4px;
+	/*height: 34px;*/
+	height: 16px;
+	font-size: 12px;
+	font-weight: normal;
+}
+table.ContentTable tr td {
+	-webkit-transition: color 0.15s linear;
+}
+table.ContentTable tr th.ColumnFirst {
+	-webkit-border-top-left-radius: 10px;
+	border-top-left-radius: 10px;
+}
+table.ContentTable tr th.ColumnLast {
+	-webkit-border-top-right-radius: 10px;
+	border-top-right-radius: 10px;
+}
+/*table.ContentTable.Fitted tr.Hidden {
+	display: none;
+}*/
+#Transactions.Fitted table.ContentTable.Full {
+	display: none;
+}
+#Transactions.Full table.ContentTable.Fitted {
+	display: none;
+}
+/*#Transactions table.ContentTable {
+	table-layout: fixed;
+}
+#Transactions table.ContentTable thead tr th.ColumnFirst {
+	width: 69px;
+}
+#Transactions table.ContentTable thead tr th {
+	width: 408px;
+}
+#Transactions table.ContentTable thead tr th.Amount {
+	width: 76px;
+}
+#Transactions table.ContentTable thead tr th.Balance {
+	width: 89px;
+}*/
+table.ContentTable tfoot tr td {
+	text-align: center;
+}
+/*table.ContentTable tr th.AlignRight {
+	text-align: right;
+}*/
+table.ContentTable tr th.ColumnFirst, table.DetailsTable tr th.ColumnFirst {
+	padding-left: 12px;
+}
+table.ContentTable tr th.ColumnLast, table.DetailsTable tr th.ColumnLast {
+	padding-right: 12px;
+}
+/*table.ContentTable .TableName {
+	font-size: 17px;
+}*/
+table.DetailsTable tr td {
+	background-color: #FFF;
+	padding: 2px 4px;
+}
+table.DetailsTable tr.RowFirst td {
+	padding-top: 8px;
+}
+table.DetailsTable tr.RowLast td {
+	padding-bottom: 8px;
+}
+table.ContentTable tr td {
+	vertical-align: top;
+	padding: 7px 4px;
+	background-color: #FFF;
+	border-top: solid 1px #F6F6F6;
+	border-bottom: solid 1px #FFF;
+}
+table.ContentTable.Selectable tr td {
+	padding: 10px 4px;
+}
+table.ContentTable tr.RowAlt td {
+	background-color: #F7F7F7;
+	border-bottom: solid 1px #E3E3E3;
+}
+table.ContentTable tr.Summary td {
+	background-color: #EEE;
+	border-top: none;
+	border-bottom: none;
+	padding: 2px 4px;
+}
+table.ContentTable tr.Summary.RowLast td {
+	padding-bottom: 10px;
+}
+table.ContentTable tr.RowFirst td, table.DetailsTable tr.RowFirst td {
+	border-top: solid 1px #EDEDED;
+}
+table.ContentTable tr td.ColumnFirst, table.DetailsTable tr td.ColumnFirst {
+	border-left: solid 1px #EDEDED;
+	padding-left: 12px;
+}
+table.ContentTable.Radius tr.RowFirst td.ColumnFirst, table.DetailsTable.Radius tr.RowFirst td.ColumnFirst {
+	-webkit-border-top-left-radius: 10px;
+	border-top-left-radius: 10px;
+}
+table.ContentTable.Radius tr.RowFirst td.ColumnLast, table.DetailsTable.Radius tr.RowFirst td.ColumnLast {
+	-webkit-border-top-right-radius: 10px;
+	border-top-right-radius: 10px;
+}
+table.ContentTable tr.RowLast td, table.DetailsTable tr.RowLast td {
+	border-bottom: solid 1px #EDEDED;
+}
+table.ContentTable tr td.ColumnLast, table.DetailsTable tr td.ColumnLast {
+	border-right: solid 1px #EDEDED;
+	padding-right: 12px;
+}
+table.ContentTable thead tr th.ColumnFirst, table.DetailsTable thead tr th.ColumnFirst {
+	border-left: solid 1px transparent;
+}
+table.ContentTable thead tr th.ColumnLast, table.DetailsTable thead tr th.ColumnLast {
+	border-right: solid 1px transparent;
+}
+table.ContentTable.Selectable tr td.ColumnLast, table.ContentTable.Selectable thead tr th.ColumnLast {
+	padding-right: 34px; /* Room for tick icon */
+}
+table.ContentTable tr.RowLast td.ColumnFirst, table.DetailsTable tr.RowLast td.ColumnFirst {
+	-webkit-border-bottom-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+table.ContentTable tr.RowLast td.ColumnLast, table.DetailsTable tr.RowLast td.ColumnLast {
+	-webkit-border-bottom-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+/*table.ContentTable tfoot tr td {
+	font-weight: bold;
+	border-top: solid 1px #CCCCCF;
+	border-bottom: none;
+}*/
+table.ContentTable tr td > span.Sub, table.DetailsTable tr td > span.Sub {
+	display: block;
+	color: #666;
+	font-size: 12px;
+}
+table.ContentTable.Collapsible tr, table.ContentTable.Selectable tr {
+	cursor: pointer;
+}
+table.ContentTable.Selectable tr.Disabled {
+	cursor: auto;
+}
+/*table.ContentTable.Selectable tr.Disabled > td * {
+	opacity: 0.5;
+}*/
+table.ContentTable.Selectable tr.Disabled > td {
+	color: #999;
+}
+table.ContentTable.Collapsible tr td.ColumnLast {
+	padding-right: 32px;
+	background-image: url(../images/icon_rowexpanded.png);
+	background-position: right 11px;
+	background-repeat: no-repeat;
+}
+table.ContentTable.Collapsible tr.Collapsed td.ColumnLast {
+	background-image: url(../images/icon_rowcollapsed.png);
+}
+table.ContentTable.Collapsible tr div.Truncated {
+	overflow: hidden;
+	-webkit-transition: height 0.15s linear;
+}
+table.ContentTable.Collapsible tr.Collapsed div.Truncated {
+	/*width: 200px;*/
+	height: 16px;
+}
+table.ContentTable.Collapsible tr.Collapsed div.Truncated > div {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+td.Description div.Container {
+	width: 300px;
+}
+
+#Frame.Large td.Description div.Container {
+	width: 260px;
+}
+
+td.Account {
+	color: #333;
+	width: 21%;
+	white-space: nowrap;
+}
+td.Account > div.Container {
+	max-width: 144px;
+}
+td.Account > div.Container > div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+td.Amount {
+	width:17%;
+	white-space: nowrap;
+}
+
+#HomeFutureTransactions td.AccountFrom {
+	width:21%;
+}
+
+/* Future transactions */
+#HomeRecentTransactions .Date, #Transactions .Date, #HomeFutureTransactions .Date {
+	width:11%;
+}
+
+#HomeFutureTransactions .Date {
+	/*width:12%;*/
+}
+
+#HomeFutureTransactions td.AccountFrom {
+	padding-right:20px;
+	background-image:url(../images/icon_transferarrow.png);
+	background-repeat:no-repeat;
+	background-position:98% 9px;
+}
+
+table.ContentTable.Collapsible tr td div.Collapsed {
+	overflow: hidden;
+	-webkit-transition: height 0.15s linear;
+}
+table.ContentTable.Collapsible tr.Collapsed td div.Collapsed {
+	height: 0px !important; /* Override calculated element.style */
+}
+div.ContentSection div.ContentButtons {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+}
+#Frame.Input div.ContentSection div.ContentButtons {
+	position: absolute;
+	bottom: 356px;
+	width: 100%;
+}
+div.ContentSection div.ContentButtons > div {
+	min-height: 1px;
+	text-align: center;
+}
+div.ContentSection div.ContentButtons > div.Footer {
+	color: #666;
+	font-size: 12px;
+}
+div.ContentSection div.ContentButtons div.Left {
+	float: left;
+	width: 50%;
+	text-align: left;
+}
+div.ContentSection div.ContentButtons div.Right {
+	float: left;
+	width: 50%;
+	text-align: right;
+}
+div.ContentSection div.ContentButtons button {
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	padding: 0 30px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+	text-shadow: 1px 1px 1px #FFF;
+	background-color: #FC0;
+	border: none;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+div.ContentSection div.ContentButtons button:disabled, #LoginButtons button:disabled {
+	color: #999;
+	background-color: #CCC;
+	text-shadow: 1px 1px 1px #FFF;
+}
+div.ContentSection div.ContentButtons button > div.Spinner, #LoginButtons button > div.Spinner {
+	width: 35px;
+	height: 35px;
+	background-image: url(../images/spinner_button.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	float: left;
+	display: none;
+}
+div.ContentSection div.ContentButtons button.Spinning {
+	padding-left: 4px;
+}
+div.ContentSection div.ContentButtons button.Spinning > div.Spinner, #LoginButtons button.Spinning > div.Spinner {
+	display: block;
+}
+#HomeRecentTransactions .Date, #Transactions .Date, #HomeFutureTransactions .Date {
+	text-align: left;
+	white-space: nowrap; /*padding-right: 15px;*/ /*width: 61px;*/ /*overflow: hidden;*/
+}
+#HomeRecentTransactions .Description, #Transactions .Description, #HomeFutureTransactions .Description {
+	text-align: left; /*padding-right: 15px;*/ /*width: 300px;*/
+	width:51%;
+}
+div.Warning {
+	padding-left: 20px;
+	background-image: url(../images/icon_warning.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+	font-size: 12px;
+	margin: 4px 8px 0px 8px;
+}
+div.ContentTitle {
+	color: #000;
+	font-size: 20px;
+	margin: 4px 0px 10px 10px;
+}
+table.ContentTitle td.ContentTitle {
+	line-height: 44px;
+}
+#AccountDetails td {
+	color: #666;
+}
+#AccountDetails td.ContentTitle, td.ContentTitle {
+	color: #000;
+	font-size: 20px;
+}
+#Transactions td.Description span {
+	display: block;
+}
+#Transactions td.Description span.Sub {
+	color: #666;
+}
+.AmountCredit {
+	color: #060;
+}
+.AmountDebit {
+	color: #C00;
+}
+th.Amount, td.Amount {
+	text-align: right;
+	white-space: nowrap;
+	font-weight: bold;
+}
+th.Balance, td.Balance {
+	text-align: right;
+	white-space: nowrap;
+}
+td.Balance span.Amount {
+	font-weight: bold;
+}
+#HomeRecentTransactions, #Transactions {
+	/*width: 645px;*/
+}
+.LoginBox {
+	color: #FFF;
+	margin-left: auto;
+	margin-right: auto;
+	display: table;
+}
+.LoginBox .LoginShadow {
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.5);
+}
+.LoginBox .LoginShadow .LoginForm {
+	/*display: table;*/
+	color: #000;
+	padding: 68px 40px 10px 40px;
+	background-image: url(../images/banner_logon.png);
+	background-position: 44px 20px;
+	background-repeat: no-repeat;
+	border: solid 1px #CCC;
+	background-color: #FFF;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+.LoginBox .LoginShadow .LoginForm.FlatBottom {
+	padding-bottom: 35px;
+	-webkit-border-bottom-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+#ContentLogin .LoginRow .LoginCell {
+	float: left;
+	height: 42px;
+	line-height: 42px;
+	font-size: 14px;
+}
+#ContentLogin .LoginRow .LoginCell a {
+	color: #666;
+	text-decoration: none;
+}
+#ContentLogin .LoginRow .LoginCell.CellLeft {
+	/*padding: 5px 0 5px 0;*/
+	width: 150px;
+}
+#ContentLogin .LoginRow .LoginCell.CellLeft > label {
+	padding-left: 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+#ContentLogin .LoginRow .LoginCell.CellRight > input {
+	padding-top: 17px;
+}
+#ContentLogin .LoginRow .LoginCell.CellRight {
+	/*padding: 5px 10px 5px 0;*/
+	width: 250px;
+}
+#ContentLogin .LoginRow .LoginCell.ExtraLeft {
+	width: 225px;
+}
+#ContentLogin .LoginRow .LoginCell.ExtraRight {
+	width: 175px;
+	text-align: right;
+}
+#ContentLogin .LoginRow.LoginBorder.RowFirst .LoginCell {
+	border-top: solid 1px #CCC;
+}
+#ContentLogin .LoginRow.LoginBorder .LoginCell {
+	border-bottom: solid 1px #CCC;
+}
+#ContentLogin .LoginRow.LoginBorder .LoginCell.CellLeft {
+	border-left: solid 1px #CCC;
+}
+#ContentLogin .LoginRow.LoginBorder .LoginCell.CellRight {
+	border-right: solid 1px #CCC;
+}
+#ContentLogin .LoginRow.LoginBorder.RowFirst .LoginCell.CellLeft {
+	-webkit-border-top-left-radius: 8px;
+	border-top-left-radius: 8px;
+}
+#ContentLogin .LoginRow.LoginBorder.RowFirst .LoginCell.CellRight {
+	-webkit-border-top-right-radius: 8px;
+	border-top-right-radius: 8px;
+}
+#ContentLogin .LoginRow.LoginBorder.RowLast .LoginCell.CellLeft {
+	-webkit-border-bottom-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+#ContentLogin .LoginRow.LoginBorder.RowLast .LoginCell.CellRight {
+	-webkit-border-bottom-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+#ContentLogin input[type="text"], #ContentLogin input[type="password"], #ContentLogin input[type="number"] {
+	width: 90%;
+	-webkit-appearance: none;
+	border: none;
+}
+
+/* Token version */
+
+.LoginFormToken {
+	width:455px;
+	background-image:url(../images/token.png);
+	background-position:right top;
+	background-repeat:no-repeat;
+}
+#ContentLogin .LoginFormToken .LoginRow .LoginCell.CellLeft {
+	width:100px;
+}
+#ContentLogin .LoginFormToken .LoginRow .LoginCell.CellRight {
+	width: 120px;
+}
+#ContentLogin #token {
+	width: 110px;
+}
+#ContentLogin .LoginFormToken .LoginRow .LoginCell.ExtraLeft {
+	height:auto;
+}
+#ContentLogin .LoginFormToken ol, #ContentLogin .LoginFormToken ol li {
+	padding:0;
+	list-style:none;
+}
+#ContentLogin .LoginFormToken ol {
+	display:block;
+	margin:15px 0;
+}
+#ContentLogin .LoginFormToken ol li {
+	line-height:15px;
+	font-size:13px;
+	display:block;
+	margin:8px 0;
+	padding-left:28px;
+}
+#ContentLogin .LoginFormToken ol li em {
+	background:#000;
+	color:#fff;
+	text-align:center;
+	display:block;
+	position:relative;
+	left:-28px;
+	top:2px;
+	width:20px;
+	height:20px;
+	-webkit-border-radius:20px;
+	border-radius:20px;
+	font-style:normal;
+	font-size:11px;
+	line-height:20px;
+	font-weight:bold;
+	margin-bottom:-20px;
+	text-indent: 1px;
+}
+input.Clear {
+	padding: 3px 28px 3px 4px;
+}
+input[type="number"].Clear {
+	margin-right: -31px;
+}
+a.Clear {
+	display: none;
+	width: 19px;
+	height: 19px;
+	background-image: url(../images/icon_clear.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin: 4px 0px -4px -23px;
+}
+a.Clear.Visible {
+	display: inline-block;
+}
+a.Clear.Error {
+	display: inline-block;
+	background-image: url(../images/icon_error.png);
+	cursor: auto;
+}
+a, a:hover, a:visited {
+	color: black;
+	text-decoration: underline;
+}
+#LoginForm.Password #LoginFormToken, #LoginForm.Password #LoginCancel {
+	display: none;
+}
+#LoginForm.Token #LoginFormPassword {
+	display: none;
+}
+#LoginButtons {
+	margin-top: 25px;
+}
+#LoginButtons div.Left {
+	float: left;
+}
+#LoginButtons div.Right {
+	float: right;
+	text-align: right;
+}
+#LoginButtons button, #ButtonLogoffTouch {
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	padding: 0 70px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #000;
+	text-shadow: 1px 1px 1px #FFF;
+	background-color: #FC0;
+	border: none;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#ContentLogoff, #BodyLogoffFooter {
+	display: none;
+}
+
+#ContentLogoff div.Left {
+	float: left;
+}
+#ButtonLogoffTouch {
+	padding: 0 35px;
+	float: right;
+}
+#LoginButtons button.Spinning {
+	padding-left: 30px; /* 70px - spinner width 40px */
+}
+#LoginButtons button > div.Spinner {
+	width: 40px;
+	height: 40px;
+}
+#Welcome {
+	margin: 4px 6px;
+	text-align: right;
+	font-size: 13px;
+}
+#Username {
+	color: #666;
+}
+
+
+.Debug {
+	display: none;
+}
+
+
+/* Edit accounts popup */
+#ContentEdit_popup {
+	top: 39px;
+	left: 32%;
+	margin-left: 15px;
+}
+#ContentEdit_popup .popup_contents {
+	padding: 4px 0;
+}
+ul.AccountsList, ul.AccountsList li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+ul.AccountsList li {
+	border-top: 1px solid #ccc;
+	padding: 8px 10px 12px 10px;
+}
+ul.AccountsList li:first-child {
+	border-top: none;
+}
+ul.AccountsList li > span {
+	float: left;
+	width: 74%;
+}
+ul.AccountsList li > span span.AccountName {
+	display: block;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 18px;
+}
+ul.AccountsList li > span span.AccountNumber {
+	display: block;
+	font-size: 12px;
+	color: #666;
+	line-height: 16px;
+}
+
+/* REGION : POPUPS */
+.popup {
+	position:absolute;
+	font-family: Helvetica, sans-serif;
+	background:#000;
+	border:1px solid #999;
+	border-radius:8px;
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(0,0,0)),
+		color-stop(1, rgb(43,43,43))
+	);
+	display:none;
+	z-index: 100;
+	-webkit-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+.popup_open {
+	display:block;
+}
+
+#editPopup {
+	width:410px;
+	left:500px;
+}
+
+.popup_arrow {
+	width:19px;
+	height:45px;
+	overflow:hidden;
+	left:-18px;
+	position:absolute;
+	top:20px;
+}
+
+.popup_bottom .popup_arrow {
+	top:auto;
+	bottom:5px;
+}
+
+.popup_arrow span {
+	border:1px solid #000;
+	display:block;
+	width:24px;
+	height:24px;
+	left:5px;
+	top:5px;
+	position:relative;
+	-webkit-transform: rotate(45deg);
+}
+
+.popup_arrow span em {
+	display:block;
+	border:1px solid #aaa;
+	width:24px;
+	height:24px;
+	background-image: -webkit-gradient(
+		linear,
+		right bottom,
+		right top,
+		color-stop(0, rgb(23,23,23)),
+		color-stop(0.4, rgb(43,43,43)),
+		color-stop(1, rgb(94,94,94))
+	);
+}
+
+.popup_header {
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(43,43,43)),
+		color-stop(0.6, rgb(94,94,94))
+	);
+	color:#fff;
+	position:relative;
+	border-top:1px solid #aaa;
+	border-radius:7px 7px 0 0;
+}
+
+.popup_header h3 {
+	text-align:center;
+	margin: 0px 20px 0px 0px;
+	padding:0;
+	height:43px;
+	line-height:43px;
+}
+
+.popup_header button {
+	position: absolute;
+	top: 2px;
+	right: 10px;
+}
+
+.popup_frame {
+	padding:0 5px 6px 5px;
+}
+
+.popup_contents {
+	background: #FFF;
+	border-radius: 7px;
+	/*min-height: 200px;*/
+	max-height: 600px;
+	padding: 10px;
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 3px 5px #999;
+}
+
+button.FrameButtonCurved {
+	border-radius:5px;
+}
+
+/* END REGION : POPUPS */
+
+
+/* REGION : SWITCHES */
+.iPhoneCheckContainer {
+	position:relative;
+	height:27px;
+	cursor:pointer;
+	overflow:hidden;
+	width:85px;
+}
+
+.iPhoneCheckContainer.Disabled {
+	opacity:0.4;
+}
+
+.iPhoneCheckContainer input {
+	position:absolute;
+	top:5px;
+	left:30px;
+	opacity:0;
+}
+
+.iPhoneCheckContainer label {
+	white-space:nowrap;
+	font-size:17px;
+	line-height:17px;
+	font-weight:bold;
+	font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	cursor:pointer;
+	display:block;
+	height:27px;
+	position:absolute;
+	width:auto;
+	top:0;
+	padding-top:5px;
+	overflow:hidden;
+}
+
+.iPhoneCheckContainer label span {
+	display:inline-block;
+}
+
+.iPhoneCheckContainer, .iPhoneCheckContainer label {
+	user-select:none;
+	-moz-user-select:none;
+	-khtml-user-select:none;
+}
+
+.iPhoneCheckDisabled {
+	opacity:0.5;
+}
+
+label.iPhoneCheckLabelOn {
+	color:white;
+	background:url(../images/slider_on.png) no-repeat;
+	text-shadow:0px 0px 2px rgba(0, 0, 0, 0.6);
+	left:0;
+	padding-top:5px;
+}
+
+label.iPhoneCheckLabelOn span {
+	padding-left:12px;
+}
+
+label.iPhoneCheckLabelOff {
+	color:#8b8b8b;
+	background:url(../images/slider_off.png) no-repeat right 0;
+	text-shadow:0px 0px 2px rgba(255, 255, 255, 0.6);
+	text-align:right;
+	right:0;
+}
+
+label.iPhoneCheckLabelOff span {
+	padding-right:10px;
+}
+
+.iPhoneCheckHandle {
+	display:block;
+	height:27px;
+	cursor:pointer;
+	position:absolute;
+	top:0;
+	left:0;
+	width:36px;
+	background:url(../images/slider_left.png) no-repeat;
+	padding-left:3px;
+}
+
+.iPhoneCheckHandleRight {
+	height:100%;
+	width:100%;
+	padding-right:3px;
+	background:url(../images/slider_right.png) no-repeat right 0;
+}
+
+.iPhoneCheckHandleCenter {
+	height:100%;
+	width:100%;
+	background:url(../images/slider_center.png);
+}
+/* END REGION : SWITCHES */
+
+/* RESPONSIVE */
+
+.Main {
+	float: left;
+}
+
+.ContentScroll {
+	padding: 0px 10px 10px 10px;
+	height: 100%;
+}
+
+.Available, .AccountNumber, .Balance {
+	transition-property: all;
+	transition-duration: 200ms;
+/*	transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); */
+	transition-timing-function: ease-out;
+	transition-delay: 250ms;
+}
+
+#ButtonEdit {
+	visibility: hidden;
+}
+
+@media all and (min-width: 916px) {
+
+	.HeaderCenter {
+		min-width: 240px ;
+		background: url(../images/logo.png);
+		background-repeat: no-repeat;
+		background-position: 0px 9px;
+	}
+
+	.Linked {
+		background-image: url(../images/icon_selector.png);
+		background-position: right center;
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
+
+	.navContainer {
+		width: 290px;
+		min-width: 290px;
+	}
+
+	.navHeader {
+		width: 290px;
+		min-width: 290px;
+	}
+	
+	.navExpanded {
+		width: 290px;
+	}
+
+	.expando {
+		visibility: hidden;
+	}
+}
+
+@media all and (max-width: 915px) and (min-width: 480px) {
+}
+
+@media all and (max-width: 915px) {
+	.HeaderCenter {
+		background: url(../images/logo.png);
+		background-repeat: no-repeat;
+		background-position: -147px 9px;
+		min-width: 120px ;
+	}
+
+	#ButtonEdit {
+		visibility: visible;
+	}
+
+	.navContainer {
+		width: 70px;
+		min-width: 70px;
+	}
+
+	.navHeader {
+		width: 70px;
+		min-width: 70px;
+	}
+	
+	.AccountName {
+		width: 64px;
+		transform: rotate(135deg);
+		opacity: 0.0;
+		font-size: 0.1em;
+		text-align: center;
+		padding-top: 24px;
+		padding-left: -32px;
+	}
+	
+	.navExpanded .navContainer, .navExpanded .navHeader{
+		width: 290px;
+	}
+	
+	.Available, .AccountNumber, .Balance {
+		display:none;
+	}
+
+	.navExpanded .Available, .navExpanded .AccountNumber, .navExpanded .Balance {
+		display:block;
+	}
+
+	.navExpanded .AccountName {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 164px;
+		transform: rotate(0deg);
+		opacity: 1.0;
+		font-size: inherit;
+		padding-top: 0;
+		padding-left: 0;
+	}
+
+	.Linked {
+	}
+	
+	.navExpanded .Linked {
+		background-image: url(../images/icon_selector.png);
+		background-position: right center;
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
+
+	.iconHome {
+		background: url(../icons/whatsnew.png) no-repeat center;
+	}	
+
+	.iconAccount {
+		background: url(../icons/account.png) no-repeat center;
+	}	
+
+	.iconAccounts {
+		background: url(../icons/allaccounts.png) no-repeat center;
+	}	
+
+	.iconTransfer {
+		background: url(../icons/transfer.png) no-repeat center;
+	}	
+
+	.iconFeedback {
+		background: url(../icons/feedback.png) no-repeat center;
+	}	
+
+}
+
+@media all and (max-width: 479px) {
+
+	.HeaderCenter {
+		background: url(../images/logo.png) no-repeat center -40px -150px;
+		min-width: 90px;
+		width: 90px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		line-height: normal;
+		font-size: inherit;
+		padding-left: 30px;
+	}
+
+	#ContentScroll {
+		padding: 0px 0px 3px 3px;
+	}
+
+	.Content {
+		padding: 2px 0px 2px 10px;
+	}
+	
+	.navContainer {
+		width: 0px;
+		min-width: 0px;
+	}
+	
+	.AccountName {
+		width: 64px;
+		transform: rotate(45deg);
+		font-size: smaller;
+		text-align: center;
+		padding-top: 24px;
+		padding-left: -32px;
+	}
+
+	.navExpanded .HeaderRight {
+		display: none;
+	}
+	
+	.navExpanded .navContainer, .navExpanded .navHeader{
+		width: 290px;
+	}
+	
+	.Available, .AccountNumber, .Balance {
+		display:none;
+	}
+
+	.navExpanded .Available, .navExpanded .AccountNumber, .navExpanded .Balance {
+		display:block;
+	}
+
+	.navExpanded .AccountName {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 164px;
+		transform: rotate(0deg);
+		padding-top: 0;
+		padding-left: 0;
+	}
+
+	.Linked {
+	}
+	
+	.navExpanded .Linked {
+		background-image: url(../images/icon_selector.png);
+		background-position: right center;
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
+
+	.ButtonSkin {
+		display: none;
+	}
+}

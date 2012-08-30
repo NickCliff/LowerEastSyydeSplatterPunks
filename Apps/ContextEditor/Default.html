@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head runat="server">
+	<title>Context Editor</title>
+	<link href="Styles/CommBank/ContextEditor.css" rel="stylesheet" />
+    <link href="Styles/CommBank/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
+</head>
+<body>
+<div class="background"></div>
+<div class="app">
+	<div class="header">
+		<h1>Context Editor</h1>
+    </div>
+
+    <div class="main">
+        <div class="section">
+            <div class="header">
+                <h5>Context Details</h5>
+            </div>
+            <form class="form" method="post" action="Default.html" onsubmit="return false;">
+            <!-- main content -->
+            <div class="input validatable"><input id="txtNamedContextSet" type="text" placeHolder="Enter a name for a Context Set..." /></div>
+            <div class="input validatable"><button id="saveContextSet">Save Named Context</button><button id="deleteContextSet">Delete Named Context</button></div>
+            <div class="input validatable"><input type="text" id="txtNamespace" placeHolder="Namespace" /></div>
+            <div class="input validatable"><input type="text" id="txtContextType" placeHolder="ContextType" /></div>
+            <div class="input validatable"><textarea id="txtData" rows="4" cols="80" placeHolder="Data"></textarea></div>
+            <button id="edit">Apply Change</button>
+            <button id="add">Add</button>
+            <button id="cancel">Cancel</button>
+            <button id="reset">Reset</button>
+            <button id="setContext">Inject Context</button>
+
+            <div id="content" class="section"></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    	<!-- templates -->
+	<script id="contextItemTemplate" type="text/html">
+        <fieldset>        
+		<ul>
+			<li>
+				<div id="namespace" class="input">Namespace: {{:namespace}}<span class="pull-right"><a href="javascript:void(0)">edit</a> | <a href="javascript:void(0)">delete</a><input type="hidden" name="hidContext" namespace="{{:namespace}}" contextType="{{:contextType}}" data='{{: ~stringify(data) }}' /></span></div>
+				<div id="contextType" class="input">Context Type: {{:contextType}}</div>
+                <div id="data" class="input">Data: {{: ~stringify(data) }}</div>
+			</li>
+		</ul>
+        </fieldset>
+	</script>
+
+	<!-- framework scripts -->
+	<script src="../../Scripts/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.ui.button.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.ui.autocomplete.js" type="text/javascript"></script>
+	<script src="../../Scripts/PageBus/full/pagebus.js" type="text/javascript"></script>
+	<script src="../../Scripts/AppStore.Common.js" type="text/javascript"></script>
+	<script src="../../Scripts/AppStore.App.js" type="text/javascript"></script>
+	<script src="../../Scripts/AppStore.Ajax.js" type="text/javascript"></script>
+    <script src="../../Scripts/jsrender.js" type="text/javascript"></script>
+	
+	<!-- app scripts -->
+	<script src="Scripts/ContextEditor.js" type="text/javascript"></script>
+</body>
+</html>

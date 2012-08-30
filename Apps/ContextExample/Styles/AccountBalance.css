@@ -1,0 +1,77 @@
+﻿/* Accounts.css */
+
+.column-primary {
+    width: 70%;
+}
+.column-secondary {
+    width: 29%;
+}
+.column-single {
+    width: 85%;
+}
+
+.anchored-left {
+    width: 11%;
+    text-align: left;
+}
+.anchored-right {
+    text-align: right;
+    width: 49%;
+}
+
+.fixed-cell {
+    width: 30%;
+}
+.fluid-cell {
+    width: 30%;
+}
+
+.pull-right {
+    float:right;
+}
+table.summary {
+    min-width:220px;
+    font-size: 13px;
+}
+table.summary tr td:first-child {
+    text-align:left;
+}
+table.summary tr td:last-child {
+    text-align:right;
+}
+
+.emphasize {
+    font-size: 16px;
+    font-weight: bold;   
+}
+
+/* media queries
+---------------------------- */
+@media all and (max-width: 736px) {
+    .column-primary {
+	    width: 60%;
+	}
+	.fixed-cell, .fluid-cell {
+	    width: 100%;
+	}
+	.fluid-cell {
+	    color:#BBB;
+	    font-size: 11px;
+	}
+	.column-secondary {
+	    width: 39%;
+	}
+	.column-single {
+        width: 80%;
+    }
+}
+
+@media all and (max-width: 400px) {
+	.anchored-right {
+	    width:100%;
+	}
+	.column-single {
+        width: 100%;
+    }
+}
+
