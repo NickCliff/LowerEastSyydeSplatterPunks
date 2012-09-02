@@ -1,4 +1,17 @@
-﻿$(function() {
+﻿$(document).ready(function() {
+	$("form#start").bind('submit', function() {
+		goConfirm('start');
+		return false;
+	});
+	$("form#edit").bind('submit', function() {
+		goConfirm('edit');
+		return false;
+	});
+	
+	initialise();
+})
+
+$(function() {
 	// use the AppStore.App jQuery plugin to fix up any URLs to add the current app context data
 	// you need to use this plugin to adjust the URLs for any elements that might cause a navigation event e.g. forms, links
 
@@ -19,10 +32,6 @@
 
 //replace this once we get the database in place
 function getCustomerName(){
-	return "Nick";
-}
-
-function getName2(){
 	return "Nick";
 }
 
@@ -53,22 +62,50 @@ function howOften(){
 	return when;
 }
 
+function initialise(){
+	hideIt('edit');
+	hideIt('thanks');
+	hideIt('confirm');
+}
+
+function showIt(className){
+		document.getElementById(className).style.display="inline";
+}
+
+function hideIt(className){
+		document.getElementById(className).style.display="none";
+}
+
 function goEdit() {
-  document.location = AppStore.App.checkQueryString("./edit.html");
+  hideIt('start');
+
+	showIt('edit');
+	//document.location = AppStore.App.checkQueryString("./edit.html");
 }
 
-function goCancel(){
-  document.location = AppStore.App.checkQueryString("./cancel.html");
+function goCancel(whoami){
+	hideIt(whoami);
+	showIt('thanks');
+  //document.location = AppStore.App.checkQueryString("./cancel.html");
 }
 
-function goConfirm(){
-	document.location = AppStore.App.checkQueryString("./confirm.php");
+function goConfirm(whoami){
+	hideIt(whoami);
+	showIt('confirm')
+	//document.location = AppStore.App.checkQueryString("./confirm.php");
 }
 
 function goHome(){
-  document.location = AppStore.App.checkQueryString("./start.html");
+  initialise();
+	//document.location = AppStore.App.checkQueryString("./start.html");
+}
+
+//Work out how to work this as a 'back' button -- no rush
+function leaveThanks(){
+	
 }
 
 function goBack(){
 	window.history.back()
 }
+
