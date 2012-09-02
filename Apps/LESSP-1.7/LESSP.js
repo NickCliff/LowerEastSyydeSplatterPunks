@@ -1,10 +1,12 @@
 ﻿$(document).ready(function() {
 	$("form#start").bind('submit', function() {
 		goConfirm('start');
+		doSubmitToConfirm('start');
 		return false;
 	});
 	$("form#edit").bind('submit', function() {
 		goConfirm('edit');
+		doSubmitToConfirm('edit');
 		return false;
 	});
 	
@@ -76,9 +78,17 @@ function hideIt(className){
 		document.getElementById(className).style.display="none";
 }
 
+function doSubmitToConfirm(whoami){
+	if('start'){
+		//do basics
+	}
+	if('edit'){
+		//make it tricky
+	}
+}
+
 function goEdit() {
   hideIt('start');
-
 	showIt('edit');
 	//document.location = AppStore.App.checkQueryString("./edit.html");
 }

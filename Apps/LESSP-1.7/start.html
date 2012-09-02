@@ -41,13 +41,13 @@
 								<input type="hidden" name= "date" id="date" value="" />
 								We noticed that you've logged in here recently and you transferred
 								<script type="text/javascript">
-									var val = getRegularCustomerAccountsAndValue()
-									document.write("$" + val[3] + " from " + val[0] + " to " + val[1] + " ");
+									var reg = getRegularCustomerAccountsAndValue()
+									document.write("$" + reg[3] + " from " + reg[0] + " to " + reg[1] + " ");
 								
 									//set hidden inputs (for passing around)
-									$('#tranVal').val(val[2]);
-									$('#fromAcct').val(val[0]);
-									$('#toAcct').val(val[1]);
+									$('#tranVal').val(reg[2]);
+									$('#fromAcct').val(reg[0]);
+									$('#toAcct').val(reg[1]);
 							
 								</script>
 	              would you like to do this again?
@@ -102,57 +102,76 @@
 		          <div class="content">
 		            <div class="input">
 		              <label for="value">Value</label>
-		              <input type="text" placeholder="$20.00" name="value" />
+										<script type="text/javascript" charset="utf-8">
+	                  	document.write('<input type="text" placeholder="$' + reg[3] + '" name="value" />');
+	                  </script>
 		            </div>  
 		            <div class="two-column">  
 		              <div class="input">
 		                <label for="from">From</label>
 		                <select name="from">
-		                  <option>Acct A</option>
+		                  <option>
+												<script type="text/javascript" charset="utf-8">
+			                  	document.write(reg[0]);
+			                  </script>
+											</option>
 		                </select>
 		              </div>
 		              <div class="input">
 		                <label for="to">To</label>
 		                <select name="to">
-		                  <option>Acct B</option>
+		                  <option>
+												<script type="text/javascript" charset="utf-8">
+			                  	document.write(reg[1]);
+			                  </script>
+		                  </option>
 		                </select>
 		              </div>
 		            </div>
 							</div>
 							<div class="content">
-								<div class="checkgroup">
-                  <span>
-                    <input type="checkbox" name="never" value="never" />
-                    <label> Please don't ask me questions like this again <!-- it's creepy --> </label> 
-                  </span>
-                </div>
-		            <div class="actions">
-		              <div class="secondary">
-		                <input type="button" value="Cancel" onClick="goCancel('edit')" />
-		              </div>
-		              <!-- End of cancel -->
-								</div>
+								<div class="two-column">
+									<div>
+										<div class="checkgroup">
+		                  <span>
+		                    <input type="checkbox" name="never" value="never" />
+		                    <label> Please don't ask me questions like this again <!-- it's creepy --> </label> 
+		                  </span>
+		                </div>
+				            <div class="actions">
+				              <div class="secondary">
+				                <input type="button" value="Cancel" onClick="goCancel('edit')" />
+				              </div>
+										</div>
+									</div>	
 									
-								<div class="checkgroup">
-                  <span>
-                    <input type="checkbox" name="regular" value="regular" checked="checked" /> 
-                    <label>Make this a regular transaction on <b>Thursdays</b></label>
-                  </span>
-                </div>
-									
-								<div class="actions">
-	              	<div class="primary">
-		                <input type="submit" value="Transfer" />
-		              </div>
-		              <!-- end of transfer -->
-		            </div>
-		          </div>
+									<div>	
+										<div class="checkgroup">
+		                  <span>
+		                    <input type="checkbox" name="regular" value="regular" checked="checked" /> 
+		                    <label>Make this a regular transaction, 
+													<script type="text/javascript">
+														var val = howOften()
+														document.write(val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
+													</script>
+												</label>
+		                  </span>
+		                </div>	
+										<div class="actions">
+			              	<div class="primary">
+				                <input type="submit" value="Transfer" align="right" />
+												<!-- TODO: everything else works, WHY WON'T YOU STICK TO THE RIGHT!? -->
+											</div>
+				            </div>
+									</div>
+		          	</div>
+							</div>
 		        </form>
 	        
 						<!-- the start of the thank you bit -->
 	          <form class="form" id='thanks'>
 	            <div class="content">
-	              <center><!-- Yes - this is bad, fix if we have time but tbh it's a thank you page wouldn't exist irl-->
+	              <center><!-- TODO: Yes - this is bad, fix if we have time but tbh it's a thank you page wouldn't exist irl-->
 	                <img src="img/cat.jpeg" />
 	              </center>
 	              <div class="content"> 
@@ -176,27 +195,27 @@
 									<table>
 										<tr>
 											<td>Receipt Number:</td>
-											<td></td>
+											<td>123456789</td>
 										</tr>
 										<tr>
-											<td>Date:</td>
-											<td></td>
+											<td>Date of transaction:</td>
+											<td id="confirmToday"></td>
 										</tr>
 										<tr>
 											<td>From Account:</td>
-											<td></td>
+											<td id="confirmFrom"></td>
 										</tr>
 										<tr>
 											<td>To Account:</td>
-											<td></td>
+											<td id="confirmTo"></td>
 										</tr>
 										<tr>
 											<td>Description:</td>
-											<td></td>
+											<td id="confirmDescription"></td>
 										</tr>
 										<tr>
 											<td>Amount:</td>
-											<td></td>
+											<td id="confirmAmount"></td>
 										</tr>
 									</table>
 		              <!-- end of default transaction -->
