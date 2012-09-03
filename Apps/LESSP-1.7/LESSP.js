@@ -1,17 +1,17 @@
 ﻿$(document).ready(function() {
 	$("form#start").bind('submit', function() {
 		goConfirm('start');
-		doSubmitToConfirm('start');
 		return false;
 	});
 	$("form#edit").bind('submit', function() {
 		goConfirm('edit');
-		doSubmitToConfirm('edit');
 		return false;
 	});
 	
 	initialise();
 })
+
+var inputJSON = '{"result":{"identity":{"netbankId": "12345678","friendlyName": "Mr John Smith","lastSuccessfulLogin": "2002-09-24"},"proposedTransaction": {"id": "TC1","description": {"cleaned": "Fee (STG ATM)","raw": "Fee (STG ATM)"},"amount": {"currency": "AUD","signed": "2","unsigned": "2","sign": "DR"},"accounts": {"fromAccount": {"id": "Account 1" },"toAccount": {"id": "Account 2" }}}}}'
 
 $(function() {
 	// use the AppStore.App jQuery plugin to fix up any URLs to add the current app context data
@@ -78,13 +78,41 @@ function hideIt(className){
 		document.getElementById(className).style.display="none";
 }
 
-function doSubmitToConfirm(whoami){
-	if('start'){
-		//do basics
+function receiptNumber(){
+	return Math.floor(Math.random()*(999999-100000+1)+100000);
+}
+
+function populateConfirm(whoami){
+	//grab from default page
+	var receipt = receiptNumber();
+	var date = new Date();
+	var date = (date.getDate()) + "/" + (date.getMonth()+1) + "/" + (date.getFullYear());
+	var from = document.getElementById("fromAcct").value;
+	var to = document.getElementById("toAcct").value;
+	var amt = document.getElementById("tranVal").value;
+	var desc = "My regular transaction"
+	
+	if(whoami == 'edit'){
+		//grab from edit page
+		from = document.getElementById("editFrom").value;
+		to = document.getElementById("editTo").value;
+		amt = document.getElementById("editVal").value;
+		//this could be more clever
+		if(amt == ""){
+			amt = document.getElementById("editVal").placeholder;
+			amt = amt.split("$")[1]
+		}
 	}
-	if('edit'){
-		//make it tricky
-	}
+	writeToConfirm(receipt, date, from, to, desc, amt);
+}
+
+function writeToConfirm(receipt, date, from, to, desc, amt){
+	document.getElementById("confirmReceipt").innerHTML = receipt;
+	document.getElementById("confirmToday").innerHTML = date;
+	document.getElementById("confirmFrom").innerHTML = from;
+	document.getElementById("confirmTo").innerHTML = to;
+	document.getElementById("confirmDesc").innerHTML = desc;
+	document.getElementById("confirmAmount").innerHTML = "$" + amt;
 }
 
 function goEdit() {
@@ -102,6 +130,8 @@ function goCancel(whoami){
 function goConfirm(whoami){
 	hideIt(whoami);
 	showIt('confirm')
+	
+	populateConfirm(whoami)
 	//document.location = AppStore.App.checkQueryString("./confirm.php");
 }
 
@@ -112,10 +142,9 @@ function goHome(){
 
 //Work out how to work this as a 'back' button -- no rush
 function leaveThanks(){
-	
+	//need to be able to feed back to 'edit', 'start', and 'confirm' :):)
 }
 
 function goBack(){
 	window.history.back()
 }
-
