@@ -11,6 +11,13 @@
 	initialise();
 })
 
+function initialise(){
+	hideIt('edit');
+	hideIt('thanks');
+	hideIt('confirm');
+}
+
+//replace this with correct input
 var inputJSON = '{"result":{"identity":{"netbankId": "12345678","friendlyName": "Mr John Smith","lastSuccessfulLogin": "2002-09-24"},"proposedTransaction": {"id": "TC1","description": {"cleaned": "Fee (STG ATM)","raw": "Fee (STG ATM)"},"amount": {"currency": "AUD","signed": "2","unsigned": "2","sign": "DR"},"accounts": {"fromAccount": {"id": "Account 1" },"toAccount": {"id": "Account 2" }}}}}'
 
 $(function() {
@@ -32,18 +39,52 @@ $(function() {
 	);
 });
 
-//replace this once we get the database in place
+/**
+	* returns the transaction we're suggesting for the customer based off the JSON this function is fed.
+	*
+ 	* inputJSON == json string for processing
+ 	* why:
+	* 	- ID: want to know the id of whoever
+	*		- predict: what are we predicting? (acctA, acctB, $ value)
+	*		- acctList: list of accounts for editing value
+	*		- regular: how often (i.e. weekly, fortnightly etc)
+ 	*/
+function getJSON(inputJSON, why){
+	var input = jQuery.parseJSON(inputJSON);
+	if(why == "id"){
+		return input.result.identity.friendlyName;
+	}
+	if(why == "predict"){
+		var proposed = new Array(5);
+		proposed[0] = input.result.proposedTransaction.description.cleaned;
+		proposed[1] = input.result.proposedTransaction.amount.signed;
+		proposed[2] = input.result.proposedTransaction.amount.sign;
+		proposed[3] = input.result.proposedTransaction.accounts.fromAccount.id;
+		proposed[4] = input.result.proposedTransaction.accounts.toAccount.id;
+		return proposed;
+	}
+	if(why == "acctList"){
+		//to be built if time allows
+		return;
+	}
+	if(why == "regular"){
+		//to be built if time allows
+		return
+	}
+}
+
 function getCustomerName(){
-	return "Nick";
+	return getJSON(inputJSON, "id");
 }
 
 //replace this once we get the database in place
 function getRegularCustomerAccountsAndValue(){
+	var jsonFeed = getJSON(inputJSON, "predict");
 	var regValues = new Array(4);
-	regValues[0] = "Account 1";
-	regValues[1] = "Account 2";
-	regValues[2] = 20.00;
-	regValues[3] = "20.00"
+	regValues[0] = jsonFeed[3];
+	regValues[1] = jsonFeed[4];
+	regValues[2] = jsonFeed[1];
+	regValues[3] = jsonFeed[1];
 	
 	return regValues;
 }
@@ -62,12 +103,6 @@ function howOften(){
 	when[6] = today.getFullYear();
 	
 	return when;
-}
-
-function initialise(){
-	hideIt('edit');
-	hideIt('thanks');
-	hideIt('confirm');
 }
 
 function showIt(className){
