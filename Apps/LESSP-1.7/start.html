@@ -2,11 +2,6 @@
 <html>
 	<head>
 	    <title>Lower East Side Splatter Punks</title>
-		<style type="text/css">
-		.hidden {
-			display: none;
-		}
-		</style>
 		<!-- scripts -->
 	  <script src="pagebus.js" type="text/javascript"></script>
 	  <script src="jquery-1.7.2.js" type="text/javascript"></script>
@@ -39,6 +34,7 @@
 								<input type="hidden" name= "toAccount" id="toAcct" value="" />
 	              <input type="hidden" name= "period" id="period" value="" />
 								<input type="hidden" name= "date" id="date" value="" />
+								<input type="hidden" name= "whereami" id="whereami" value="">
 								We noticed that you've logged in here recently and you transferred
 								<script type="text/javascript">
 									var reg = getRegularCustomerAccountsAndValue()
@@ -160,7 +156,7 @@
 										<div class="actions">
 			              	<div class="primary">
 				                <input type="submit" value="Transfer" align="right" />
-												<!-- TODO: everything else works, WHY WON'T YOU STICK TO THE RIGHT!? -->
+												<!-- TODO: everything else works, WHY WON'T YOU STICK TO THE RIGHT (in tablet)!? -->
 											</div>
 				            </div>
 									</div>
@@ -181,7 +177,7 @@
 
 	            		<div class="actions">
 	              		<div class="primary">
-	                		<input type="button" value="Back to the App" onClick="leaveThanks()">
+	                		<input type="button" value="Back to the App" onClick="goBack()">
 	              		</div>
 	            		</div>
 								</div>
@@ -221,6 +217,12 @@
 										</tr>
 									</table>
 		              <!-- end of default transaction -->
+									<div class="actions">
+		              	<div class="primary">
+			                <input type="submit" value="Transfer Now" align="right" />
+											<!-- TODO: everything else works, WHY WON'T YOU STICK TO THE RIGHT (in tablet)!? -->
+										</div>
+			            </div>		
 		            </div>
 		          </form>
 					</div>

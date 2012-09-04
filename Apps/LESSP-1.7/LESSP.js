@@ -12,9 +12,16 @@
 })
 
 function initialise(){
+	whereami('start');
 	hideIt('edit');
 	hideIt('thanks');
 	hideIt('confirm');
+}
+
+function whereami(where){
+	if(where != "thanks"){
+		$('#whereami').val(where);
+	}
 }
 
 //replace this with correct input
@@ -106,7 +113,8 @@ function howOften(){
 }
 
 function showIt(className){
-		document.getElementById(className).style.display="inline";
+	whereami(className);
+	document.getElementById(className).style.display="inline";
 }
 
 function hideIt(className){
@@ -181,5 +189,9 @@ function leaveThanks(){
 }
 
 function goBack(){
-	window.history.back()
+	hideIt('start');
+	hideIt('edit');
+	hideIt('thanks');
+	hideIt('confirm');
+	showIt(document.getElementById('whereami').value)
 }
