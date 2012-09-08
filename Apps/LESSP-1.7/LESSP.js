@@ -1,4 +1,8 @@
-﻿$(document).ready(function() {
+﻿var inputJSON = '123'
+//'{"result":{"identity":{"netbankId": "12345678","friendlyName": "Mr John Smith","lastSuccessfulLogin": "2002-09-24"},"proposedTransaction": {"id": "TC1","description": {"cleaned": "Fee (STG ATM)","raw": "Fee (STG ATM)"},"amount": {"currency": "AUD","signed": "2","unsigned": "2","sign": "DR"},"accounts": {"fromAccount": {"id": "Account 1" },"toAccount": {"id": "Account 2" }}}}}'
+
+//wait for document to be ready
+$(document).ready(function() {
 	$("form#start").bind('submit', function() {
 		goConfirm('start');
 		return false;
@@ -7,15 +11,54 @@
 		goConfirm('edit');
 		return false;
 	});
-	
-	initialise();
+
+	$.ajax({
+	    url: 'http://127.0.0.1:8124/',
+	    dataType: "jsonp",
+	    jsonpCallback: "_testcb",
+	    cache: false,
+	    timeout: 5000,
+	    success: function(data) {
+	       initialise(data);
+	    },
+	    error: function(jqXHR, textStatus, errorThrown) {
+	        alert('error ' + textStatus + " " + errorThrown);
+	    }
+	});
 })
 
-function initialise(){
+function initialise(json){
 	whereami('start');
 	hideIt('edit');
 	hideIt('thanks');
 	hideIt('confirm');
+	
+	initialiseStart(json);
+	initialiseEdit();
+	initialiseConfirm();
+}
+
+function initialiseStart(json){
+	var jsonFeed = getJSON(json, 'predict');
+	
+	var reg = getRegularCustomerAccountsAndValue(jsonFeed);
+	$('#acctAndVal').append("$" + reg[3] + " from " + reg[0] + " to " + reg[1] + " ");
+	$('#tranVal').val(reg[3]);
+	$('#fromAcct').val(reg[0]);
+	$('#toAcct').val(reg[1]);
+	
+	var val = howOften(jsonFeed); 
+	$('#often').append(val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
+	$('#period').val(val[1]); //grabs period code
+	$('#date').val(val[3]); //grabs today's date
+}
+
+function initialiseEdit(){
+	
+}
+
+function initialiseConfirm(){
+	
 }
 
 function whereami(where){
@@ -23,9 +66,6 @@ function whereami(where){
 		$('#whereami').val(where);
 	}
 }
-
-//replace this with correct input
-var inputJSON = '{"result":{"identity":{"netbankId": "12345678","friendlyName": "Mr John Smith","lastSuccessfulLogin": "2002-09-24"},"proposedTransaction": {"id": "TC1","description": {"cleaned": "Fee (STG ATM)","raw": "Fee (STG ATM)"},"amount": {"currency": "AUD","signed": "2","unsigned": "2","sign": "DR"},"accounts": {"fromAccount": {"id": "Account 1" },"toAccount": {"id": "Account 2" }}}}}'
 
 $(function() {
 	// use the AppStore.App jQuery plugin to fix up any URLs to add the current app context data
@@ -85,8 +125,8 @@ function getCustomerName(){
 }
 
 //replace this once we get the database in place
-function getRegularCustomerAccountsAndValue(){
-	var jsonFeed = getJSON(inputJSON, "predict");
+function getRegularCustomerAccountsAndValue(jsonFeed){
+	
 	var regValues = new Array(4);
 	regValues[0] = jsonFeed[3];
 	regValues[1] = jsonFeed[4];
@@ -98,7 +138,7 @@ function getRegularCustomerAccountsAndValue(){
 
 //replace this once we get the database in place
 //Use IDs instead of weekly etc in db (then we can do monthly/fortnightly etc)
-function howOften(){
+function howOften(jsonFeed){
 	var when = new Array(7);
 	when[0] = "weekly";
 	when[1] = 1; //code for when[0] (hardcoded to 'weekly' currently)
