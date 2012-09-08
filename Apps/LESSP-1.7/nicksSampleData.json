@@ -3,13 +3,17 @@
 		"identity": {
 			"netbankId": "12345678",
 			"friendlyName": "Mr John Smith",
-			"lastSuccessfulLogin": "2002-09-24"
+		},
+		"accounts": {
+			"id": "Account 1",
+			"id": "Account 2",
+			"id": "Account 3",
+			"id": "Account 4"
 		},
 		"proposedTransaction": {
 			"id": "TC1",
 			"description": {
 				"cleaned": "Fee (STG ATM)",
-				"raw": "Fee (STG ATM)"
 			},
 			"amount": {
 				"currency": "AUD",
