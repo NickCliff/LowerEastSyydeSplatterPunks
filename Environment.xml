@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <environment environmentId="TopCoder" description="Helix HTML Container local environment" xmlns="http://commbank.com.au/appstore/environment.xsd">
   <apps>
-    <add host="Apps/HelloWorld/Manifest.xml"/>
+    <!--<add host="Apps/HelloWorld/Manifest.xml"/>
     <add host="Apps/HelloWorldForm/Manifest.xml"/>
-    <add host="Apps/NavigationExample/Manifest.xml"/>
-    <add host="Apps/ContextExample/Manifest.xml"/>
+    <add host="Apps/NavigationExample/Manifest.xml"/>-->
+    <add host="Apps/LESSP-1.7/Manifest.xml" />
     <!-- the developer container requires this app -->
-    <add host="Apps/ContextEditor/Manifest.xml"/>
-    <add host="Apps/LESSP/Manifest.xml"/>
-    <add host="Apps/LESSP-1.7/Manifest.xml"/>
+    <add host="Apps/ContextEditor/Manifest.xml" />    
+		<add host="Apps/ContextExample/Manifest.xml" />
   </apps>
   <dataSources>
     <!-- example only -->
