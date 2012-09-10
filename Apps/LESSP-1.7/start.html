@@ -19,11 +19,7 @@
 				<div class="main">
 					<div class="section">
 						<div class="header">
-							<h5>Welcome, 
-								<script type="text/javascript">
-									document.write(getCustomerName());
-								</script>
-							</h5>
+							<h5 id="blkBar">Welcome, </h5>
 						</div>
 					
 						<!-- the start of the initial page -->
@@ -79,30 +75,16 @@
 		          <div class="content">
 		            <div class="input">
 		              <label for="value">Value</label>
-										<script type="text/javascript" charset="utf-8">
-	                  	document.write('<input type="text" placeholder="$' + reg[3] + '" name="value" id="editVal" />');
-	                  </script>
+									<input type="text" placeholder="$" name="value" id="editVal" />
 		            </div>  
 		            <div class="two-column">  
 		              <div class="input">
 		                <label for="from">From</label>
-		                <select name="from" id="editFrom">
-		                  <option>
-												<script type="text/javascript" charset="utf-8">
-			                  	document.write(reg[0]);
-			                  </script>
-											</option>
-		                </select>
+		                <select name="from" id="editFrom"><!-- filled at initialise() --></select>
 		              </div>
 		              <div class="input">
 		                <label for="to">To</label>
-		                <select name="to" id="editTo">
-		                  <option>
-												<script type="text/javascript" charset="utf-8">
-			                  	document.write(reg[1]);
-			                  </script>
-		                  </option>
-		                </select>
+		                <select name="to" id="editTo"><!-- filled at initialise() --></select>
 		              </div>
 		            </div>
 							</div>
@@ -126,12 +108,7 @@
 										<div class="checkgroup">
 		                  <span>
 		                    <input type="checkbox" name="regular" value="regular" checked="checked" /> 
-		                    <label>Make this a regular transaction, 
-													<script type="text/javascript">
-														var val = howOften()
-														document.write(val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
-													</script>
-												</label>
+		                    <label id="howOften">Make this a regular transaction, <!-- appended with 'initialiseStart(json)') --></label>
 		                  </span>
 		                </div>	
 										<div class="actions">

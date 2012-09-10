@@ -1,5 +1,4 @@
-﻿var inputJSON = '123'
-//'{"result":{"identity":{"netbankId": "12345678","friendlyName": "Mr John Smith","lastSuccessfulLogin": "2002-09-24"},"proposedTransaction": {"id": "TC1","description": {"cleaned": "Fee (STG ATM)","raw": "Fee (STG ATM)"},"amount": {"currency": "AUD","signed": "2","unsigned": "2","sign": "DR"},"accounts": {"fromAccount": {"id": "Account 1" },"toAccount": {"id": "Account 2" }}}}}'
+﻿//'{"result":{"identity":{"netbankId": "12345678","friendlyName": "Mr John Smith","lastSuccessfulLogin": "2002-09-24"},"proposedTransaction": {"id": "TC1","description": {"cleaned": "Fee (STG ATM)","raw": "Fee (STG ATM)"},"amount": {"currency": "AUD","signed": "2","unsigned": "2","sign": "DR"},"accounts": {"fromAccount": {"id": "Account 1" },"toAccount": {"id": "Account 2" }}}}}'
 
 //wait for document to be ready
 $(document).ready(function() {
@@ -33,14 +32,8 @@ function initialise(json){
 	hideIt('thanks');
 	hideIt('confirm');
 	
-	initialiseStart(json);
-	initialiseEdit();
-	initialiseConfirm();
-}
-
-function initialiseStart(json){
+	//updates values in 'start'
 	var jsonFeed = getJSON(json, 'predict');
-	
 	var reg = getRegularCustomerAccountsAndValue(jsonFeed);
 	$('#acctAndVal').append("$" + reg[3] + " from " + reg[0] + " to " + reg[1] + " ");
 	$('#tranVal').val(reg[3]);
@@ -49,15 +42,28 @@ function initialiseStart(json){
 	
 	var val = howOften(jsonFeed); 
 	$('#often').append(val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
+	$('#howOften').append(val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
 	$('#period').val(val[1]); //grabs period code
 	$('#date').val(val[3]); //grabs today's date
-}
-
-function initialiseEdit(){
 	
+	$('#blkBar').append(getJSON(json, 'id'));
+
+	//updates values in 'edit'
+	$("#editVal").attr("placeholder", "$" + reg[3]);
+
+	json = getJSON(json, 'acctList');	
+	addOptions(json, "#editFrom", jsonFeed[3]);
+	addOptions(json, "#editTo", jsonFeed[4]);
 }
 
-function initialiseConfirm(){
+function addOptions(json, element, select){
+	$.each(json, function(i, e){
+		if(select == e.id){
+			$(element).append('<option value="' + e.id + '" selected="selected">' + e.id + "</option>");
+		} else {
+			$(element).append('<option value="' + e.id + '">' + e.id + '</option>');
+		}
+	});
 	
 }
 
@@ -70,7 +76,6 @@ function whereami(where){
 $(function() {
 	// use the AppStore.App jQuery plugin to fix up any URLs to add the current app context data
 	// you need to use this plugin to adjust the URLs for any elements that might cause a navigation event e.g. forms, links
-
 	$("form, a").fixAppURL();
 
 	// show valid links, hook up app navigation to links
@@ -112,7 +117,7 @@ function getJSON(inputJSON, why){
 	}
 	if(why == "acctList"){
 		//to be built if time allows
-		return;
+		return input.result.accounts; 
 	}
 	if(why == "regular"){
 		//to be built if time allows
@@ -120,7 +125,7 @@ function getJSON(inputJSON, why){
 	}
 }
 
-function getCustomerName(){
+function getCustomerName(json){
 	return getJSON(inputJSON, "id");
 }
 
