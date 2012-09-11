@@ -134,24 +134,23 @@ $(function() {
 function getJSON(inputJSON, why){
 	var input = jQuery.parseJSON(inputJSON);
 	if(why == "id"){
-		return input.result.identity.friendlyName;
+		return input.result.friendlyName;
 	}
 	if(why == "predict"){
 		var proposed = new Array(5);
-		proposed[0] = input.result.proposedTransaction.description.cleaned;
-		proposed[1] = input.result.proposedTransaction.amount.signed;
-		proposed[2] = input.result.proposedTransaction.amount.sign;
-		proposed[3] = input.result.proposedTransaction.accounts.fromAccount.id;
-		proposed[4] = input.result.proposedTransaction.accounts.toAccount.id;
+		proposed[0] = "Predicted transaction";
+		proposed[1] = input.result.amount;
+		proposed[2] = input.result.amount;
+		proposed[3] = input.result.fromAccountID;
+		proposed[4] = input.result.toAccountID;
 		return proposed;
 	}
 	if(why == "acctList"){
-		//to be built if time allows
 		return input.result.accounts; 
 	}
 	if(why == "regular"){
 		//to be built if time allows
-		return
+		return "weekly"
 	}
 }
 
