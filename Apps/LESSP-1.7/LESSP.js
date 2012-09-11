@@ -1,7 +1,15 @@
-﻿//'{"result":{"identity":{"netbankId": "12345678","friendlyName": "Mr John Smith","lastSuccessfulLogin": "2002-09-24"},"proposedTransaction": {"id": "TC1","description": {"cleaned": "Fee (STG ATM)","raw": "Fee (STG ATM)"},"amount": {"currency": "AUD","signed": "2","unsigned": "2","sign": "DR"},"accounts": {"fromAccount": {"id": "Account 1" },"toAccount": {"id": "Account 2" }}}}}'
+﻿var localhost = "127.0.0.1";
+var port = "8124";
+//var day = "Thursday";
+
+//'{"result":{"identity":{"netbankId": "12345678","friendlyName": "Mr John Smith","lastSuccessfulLogin": "2002-09-24"},"proposedTransaction": {"id": "TC1","description": {"cleaned": "Fee (STG ATM)","raw": "Fee (STG ATM)"},"amount": {"currency": "AUD","signed": "2","unsigned": "2","sign": "DR"},"accounts": {"fromAccount": {"id": "Account 1" },"toAccount": {"id": "Account 2" }}}}}'
 
 //wait for document to be ready
 $(document).ready(function() {
+	$("form#testHarness").bind('submit', function() {
+		runFor($('#dayToSend').val());
+		return false;
+	});
 	$("form#start").bind('submit', function() {
 		goConfirm('start');
 		return false;
@@ -14,11 +22,18 @@ $(document).ready(function() {
 		goCancel('confirm');
 		return false;
 	});
+//TODO: adjust this to work with different inputs depending on test harness
+//	runFor("thursday");
+	
+	setup();
+})
 
-	$.ajax({
-	    url: 'http://127.0.0.1:8124/',
+function runFor(input){
+	jQuery.ajax({
+			url: 'http://' + localhost + ":" + port + "/" + input,
+	//	    url: 'http://127.0.0.1:8124/',
 	    dataType: "jsonp",
-	    jsonpCallback: "_testcb",
+	    jsonpCallback: "jsonCallback",
 	    cache: false,
 	    timeout: 5000,
 	    success: function(data) {
@@ -28,13 +43,23 @@ $(document).ready(function() {
 	        alert('error ' + textStatus + " " + errorThrown);
 	    }
 	});
-})
+}
+
+function setup(){
+	whereami('testHarness');
+	hideIt('start')
+	hideIt('edit');
+	hideIt('thanks');
+	hideIt('confirm');
+	showIt('testHarness');
+}
 
 function initialise(json){
 	whereami('start');
 	hideIt('edit');
 	hideIt('thanks');
 	hideIt('confirm');
+	hideIt('testHarness');
 	showIt('start');
 	
 	//updates values in 'start'
@@ -62,7 +87,7 @@ function initialise(json){
 }
 
 function addOptions(json, element, select){
-	$.each(json, function(i, e){
+	jQuery.each(json, function(i, e){
 		if(select == e.id){
 			$(element).append('<option value="' + e.id + '" selected="selected">' + e.id + "</option>");
 		} else {

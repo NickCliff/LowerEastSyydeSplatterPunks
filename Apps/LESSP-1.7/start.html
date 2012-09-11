@@ -21,6 +21,32 @@
 						<div class="header">
 							<h5 id="blkBar">Welcome, </h5>
 						</div>
+					  
+						<!-- Test Harness -->
+						<form class="form" id='testHarness'>
+		          <div class="content">  
+	              <div class="input">
+	                <label for="from">From</label>
+	                <select name="from" id="dayToSend">
+	                	<option value="0">Monday</option>
+										<option value="1">Tuesday</option>
+										<option value="2">Wednesday</option>
+										<option value="3">Thursday</option>
+										<option value="4">Friday</option>
+										<option value="5">Saturday</option>
+										<option value="6">Sunday</option>
+	                </select>
+									<div class="actions"> 
+		                <div class="secondary">
+		                  <input type="button" value="Reset" onClick="setup()" />
+		                </div>
+		                <div class="primary">
+		                  <input type="submit" value="Start" onClick="goStart('testHarness')"  />
+		                </div>
+		              </div>
+	              </div>
+							</div>
+		        </form>
 					
 						<!-- the start of the initial page -->
 						<form class="form" id='start'>
@@ -134,7 +160,7 @@
 	                (Nicholas Cliff &amp; Andrew Purchas)
 	            		<div class="actions">
 	              		<div class="secondary">
-			                <input type="button" value="Restart" onClick="initialise()" />
+			                <input type="button" value="Restart" onClick="setup()" />
 			              </div>
 										<div class="primary">
 	                		<input type="button" value="Back" onClick="goBack()">
@@ -154,27 +180,27 @@
 										<table>
 											<tr>
 												<td>Receipt Number:</td>
-												<td id="confirmReceipt"></td>
+												<td id="confirmReceipt"  class="confirm"></td>
 											</tr>
 											<tr>
 												<td>Date of transaction:</td>
-												<td id="confirmToday"></td>
+												<td id="confirmToday"  class="confirm"></td>
 											</tr>
 											<tr>
 												<td>From Account:</td>
-												<td id="confirmFrom"></td>
+												<td id="confirmFrom"  class="confirm"></td>
 											</tr>
 											<tr>
 												<td>To Account:</td>
-												<td id="confirmTo"></td>
+												<td id="confirmTo"  class="confirm"></td>
 											</tr>
 											<tr>
 												<td>Description:</td>
-												<td id="confirmDesc"></td>
+												<td id="confirmDesc"  class="confirm"></td>
 											</tr>
 											<tr>
 												<td>Amount:</td>
-												<td id="confirmAmount"></td>
+												<td id="confirmAmount" class="confirm"></td>
 											</tr>
 										</table>
 									</center>
@@ -185,7 +211,6 @@
 			              </div>
 		              	<div class="primary">
 			                <input type="submit" value="Transfer Now" />
-											<!-- TODO: everything else works, WHY WON'T YOU STICK TO THE RIGHT (in tablet)!? -->
 										</div>
 			            </div>		
 		            </div>
