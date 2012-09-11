@@ -10,6 +10,10 @@ $(document).ready(function() {
 		goConfirm('edit');
 		return false;
 	});
+	$("form#confirm").bind('submit', function() {
+		goCancel('confirm');
+		return false;
+	});
 
 	$.ajax({
 	    url: 'http://127.0.0.1:8124/',
@@ -31,6 +35,7 @@ function initialise(json){
 	hideIt('edit');
 	hideIt('thanks');
 	hideIt('confirm');
+	showIt('start');
 	
 	//updates values in 'start'
 	var jsonFeed = getJSON(json, 'predict');
@@ -203,8 +208,8 @@ function writeToConfirm(receipt, date, from, to, desc, amt){
 	document.getElementById("confirmAmount").innerHTML = "$" + amt;
 }
 
-function goEdit() {
-  hideIt('start');
+function goEdit(whoami) {
+  hideIt(whoami);
 	showIt('edit');
 	//document.location = AppStore.App.checkQueryString("./edit.html");
 }

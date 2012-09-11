@@ -44,7 +44,7 @@
 								<div class="actions"> 
 	                <!-- Edit -->
 	                <div class="secondary">
-	                  <input type="button" value="Edit Transaction" onClick="goEdit()" />
+	                  <input type="button" value="Edit" onClick="goEdit('start')" />
 	                </div>
 								
 	                <!-- DO IT NOW -->
@@ -128,14 +128,16 @@
 	              <center><!-- TODO: Yes - this is bad, fix if we have time but tbh it's a thank you page wouldn't exist irl-->
 	                <img src="img/cat.jpeg" />
 	              </center>
-	              <div class="content"> 
-	                <b>Thanks for playing!</b><br />
+	              <div class="content">
+                	<b>Thanks for playing!</b><br />
 	                - The Lower East Side Splatter Punks<br />
 	                (Nicholas Cliff &amp; Andrew Purchas)
-
 	            		<div class="actions">
-	              		<div class="primary">
-	                		<input type="button" value="Back to the App" onClick="goBack()">
+	              		<div class="secondary">
+			                <input type="button" value="Restart" onClick="initialise()" />
+			              </div>
+										<div class="primary">
+	                		<input type="button" value="Back" onClick="goBack()">
 	              		</div>
 	            		</div>
 								</div>
@@ -148,36 +150,41 @@
 									Please confirm that you'd like to perform the following transaction:
 								</div>
 								<div class="content">
-									<table>
-										<tr>
-											<td>Receipt Number:</td>
-											<td id="confirmReceipt"></td>
-										</tr>
-										<tr>
-											<td>Date of transaction:</td>
-											<td id="confirmToday"></td>
-										</tr>
-										<tr>
-											<td>From Account:</td>
-											<td id="confirmFrom"></td>
-										</tr>
-										<tr>
-											<td>To Account:</td>
-											<td id="confirmTo"></td>
-										</tr>
-										<tr>
-											<td>Description:</td>
-											<td id="confirmDesc"></td>
-										</tr>
-										<tr>
-											<td>Amount:</td>
-											<td id="confirmAmount"></td>
-										</tr>
-									</table>
+									<center>
+										<table>
+											<tr>
+												<td>Receipt Number:</td>
+												<td id="confirmReceipt"></td>
+											</tr>
+											<tr>
+												<td>Date of transaction:</td>
+												<td id="confirmToday"></td>
+											</tr>
+											<tr>
+												<td>From Account:</td>
+												<td id="confirmFrom"></td>
+											</tr>
+											<tr>
+												<td>To Account:</td>
+												<td id="confirmTo"></td>
+											</tr>
+											<tr>
+												<td>Description:</td>
+												<td id="confirmDesc"></td>
+											</tr>
+											<tr>
+												<td>Amount:</td>
+												<td id="confirmAmount"></td>
+											</tr>
+										</table>
+									</center>
 		              <!-- end of default transaction -->
 									<div class="actions">
+										<div class="secondary">
+			                <input type="button" value="Cancel" onClick="goEdit('confirm')" />
+			              </div>
 		              	<div class="primary">
-			                <input type="submit" value="Transfer Now" align="right" />
+			                <input type="submit" value="Transfer Now" />
 											<!-- TODO: everything else works, WHY WON'T YOU STICK TO THE RIGHT (in tablet)!? -->
 										</div>
 			            </div>		
