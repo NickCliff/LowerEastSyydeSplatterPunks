@@ -9,16 +9,51 @@ console.log("Listening on port: " + port);
 console.log(" ");
 
 http.createServer(function (req, res) {
-    var path = url.parse(req.url).pathname;
+    //request
+		var path = url.parse(req.url).pathname;
 		console.log(getDate() + " - REQUEST:   '" + path + "'");
+
+		//do stuff
+		var accounts = getAccounts();
+		var identity = getIdentity();
+		var amount = getAmount();
+		var from = getFrom();
+		var to =  getTo();
+
+		//response
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('jsonCallback(\'{"result":{"accounts": [{"id": "Account 1"},{"id": "Account 2"},{"id": "Account 3"},{"id": "Account 4"}],"netbankId": "12345678","friendlyName": "Mr John Smith","amount":"2","fromAccountID":"Account 1","toAccountID":"Account 2"}}\')');
+    res.end('jsonCallback(\'{"result":{' + accounts + identity + amount + from + to + '}}\')');
 		console.log(getDate() + " - RESPONSE:  sent")
 }).listen(port);
 
 function getDate(){
 	var date = new Date();
 	return (date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+}
+
+//db
+function getAccounts(){
+	return '"accounts": [{"id": "Account 1"},{"id": "Account 2"},{"id": "Account 3"},{"id": "Account 4"}],';
+}
+
+//db
+function getIdentity(){
+	return '"netbankId": "12345678","friendlyName": "Mr John Smith",'; 
+}
+
+//google
+function getAmount(){
+	return '"amount":"2",';
+}
+
+//google?
+function getFrom(){
+	return '"fromAccountID":"Account 1",';
+}
+
+//random from list of accounts?
+function getTo(){
+	return '"toAccountID":"Account 2"';
 }
 
 
