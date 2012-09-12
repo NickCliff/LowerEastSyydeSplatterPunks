@@ -46,7 +46,7 @@ function runFor(input){
 }
 
 function setup(){
-		$('#blkBar').text("This is the Test Harness")
+		$('#blkBar').text("Test harnass")
 	
 	whereami('testHarness');
 	hideIt('start')

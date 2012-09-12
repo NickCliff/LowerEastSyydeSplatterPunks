@@ -25,8 +25,8 @@
 						<!-- Test Harness -->
 						<form class="form" id='testHarness'>
 		          <div class="content">  
-	              <div class="input">
-	                <label for="from">From</label>
+                <div class="input">
+									<label for="from">From</label>
 	                <select name="from" id="dayToSend">
 	                	<option value="0">Monday</option>
 										<option value="1">Tuesday</option>
@@ -36,14 +36,14 @@
 										<option value="5">Saturday</option>
 										<option value="6">Sunday</option>
 	                </select>
-									<div class="actions"> 
-		                <div class="secondary">
-		                  <input type="button" value="Reset" onClick="setup()" />
-		                </div>
-		                <div class="primary">
-		                  <input type="submit" value="Start" />
-		                </div>
-		              </div>
+								</div>
+								<div class="actions"> 
+	                <div class="secondary">
+	                  <input type="button" value="Reset" onClick="setup()" />
+	                </div>
+	                <div class="primary">
+	                  <input type="submit" value="Start" />
+	                </div>
 	              </div>
 							</div>
 		        </form>
@@ -116,35 +116,28 @@
 							</div>
 							<div class="content">
 								<div class="two-column">
-									<div>
-										<div class="checkgroup">
-		                  <span>
-		                    <input type="checkbox" name="never" value="never" />
-		                    <label> Please don't ask me questions like this again <!-- it's creepy --> </label> 
-		                  </span>
-		                </div>
-				            <div class="actions">
-				              <div class="secondary">
-				                <input type="button" value="Cancel" onClick="goCancel('edit')" />
-				              </div>
-										</div>
-									</div>	
-									
-									<div>	
-										<div class="checkgroup">
-		                  <span>
-		                    <input type="checkbox" name="regular" value="regular" checked="checked" /> 
-		                    <label id="howOften"><!-- appended with 'initialiseStart(json)') --></label>
-		                  </span>
-		                </div>	
-										<div class="actions">
-			              	<div class="primary">
-				                <input type="submit" value="Transfer" align="right" />
-												<!-- TODO: everything else works, WHY WON'T YOU STICK TO THE RIGHT (in tablet)!? -->
-											</div>
-				            </div>
-									</div>
+									<div class="checkgroup">
+	                  <span>
+	                    <input type="checkbox" name="never" value="never" />
+	                    <label> Please don't ask me questions like this again <!-- it's creepy --> </label> 
+	                  </span>
+	                </div>										
+									<div class="checkgroup">
+	                  <span>
+	                    <input type="checkbox" name="regular" value="regular" checked="checked" /> 
+	                    <label id="howOften"><!-- appended with 'initialiseStart(json)') --></label>
+	                  </span>
+	                </div>
 		          	</div>
+		            <div class="actions">
+		              <div class="secondary">
+		                <input type="button" value="Cancel" onClick="goCancel('edit')" />
+		              </div>
+	              	<div class="primary">
+		                <input type="submit" value="Transfer" align="right" />
+										<!-- TODO: everything else works, WHY WON'T YOU STICK TO THE RIGHT (in tablet)!? -->
+									</div>
+		            </div>
 							</div>
 		        </form>
 	        
@@ -212,9 +205,9 @@
 		              	<div class="primary">
 			                <input type="submit" value="Transfer Now" />
 										</div>
-			            </div>		
+			            </div>
 		            </div>
-		          </form>
+		        </form>
 					</div>
 				</div>
 	    </div>
