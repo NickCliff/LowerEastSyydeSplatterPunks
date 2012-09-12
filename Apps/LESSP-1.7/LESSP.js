@@ -46,6 +46,8 @@ function runFor(input){
 }
 
 function setup(){
+		$('#blkBar').text("This is the Test Harness")
+	
 	whereami('testHarness');
 	hideIt('start')
 	hideIt('edit');
@@ -65,18 +67,18 @@ function initialise(json){
 	//updates values in 'start'
 	var jsonFeed = getJSON(json, 'predict');
 	var reg = getRegularCustomerAccountsAndValue(jsonFeed);
-	$('#acctAndVal').append("$" + reg[3] + " from " + reg[0] + " to " + reg[1] + " ");
+	$('#acctAndVal').text("$" + reg[3] + " from " + reg[0] + " to " + reg[1] + " ");
 	$('#tranVal').val(reg[3]);
 	$('#fromAcct').val(reg[0]);
 	$('#toAcct').val(reg[1]);
 	
 	var val = howOften(jsonFeed); 
-	$('#often').append(val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
-	$('#howOften').append(val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
+	$('#often').text("Make this a regular transaction, " + val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
+	$('#howOften').text("Make this a regular transaction, "+ val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
 	$('#period').val(val[1]); //grabs period code
 	$('#date').val(val[3]); //grabs today's date
 	
-	$('#blkBar').append(getJSON(json, 'id'));
+	$('#blkBar').text("Welcome, " + getJSON(json, 'id'));
 
 	//updates values in 'edit'
 	$("#editVal").attr("placeholder", "$" + reg[3]);
@@ -87,6 +89,10 @@ function initialise(json){
 }
 
 function addOptions(json, element, select){
+	while(element.firstChild) {
+		element.remove(element.firstChild)
+	}
+	
 	jQuery.each(json, function(i, e){
 		if(select == e.id){
 			$(element).append('<option value="' + e.id + '" selected="selected">' + e.id + "</option>");
