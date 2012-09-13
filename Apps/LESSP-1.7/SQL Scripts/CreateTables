@@ -1,0 +1,36 @@
+CREATE TABLE IF NOT EXISTS CUSTOMERS (
+	NetbankID TEXT,
+	FriendName TEXT,
+	LastLogin DATE,
+	FName TEXT,
+	MName TEXT,
+	LName TEXT
+);
+
+CREATE TABLE IF NOT EXISTS ACCOUNT (
+	AccountID TEXT,
+	CustomerName TEXT,
+	CBAName TEXT,
+	AcctType TEXT,
+	NickName TEXT,
+	BSB TEXT,
+	AcctNum TEXT,
+	Currency TEXT,
+	BalanceSign TEXT,
+	Balance NUMERIC (10, 2),
+	ProductCode TEXT
+);
+
+
+CREATE TABLE IF NOT EXISTS TRANSACTIONS (
+	TranID TEXT,
+	Description TEXT,
+	TransDate DATE,
+	TagCode TEXT,
+	TransType TEXT,
+	Currency TEXT,
+	SignedAmount NUMERIC(10,2),
+	UnsignedAmount NUMERIC(10,2),
+	DC TEXT,
+	FromAccountID TEXT
+)

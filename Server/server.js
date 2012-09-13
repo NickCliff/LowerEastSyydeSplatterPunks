@@ -1,7 +1,15 @@
 var port = "8124";
 
-var http = require('http');
-var url = require('url');
+var http = require('http'),
+    url = require('url'),
+    gp  = require('./node-google-bigquery/index'),
+    fs  = require('fs'),
+    Hash = require('hashish')
+
+var predict = gp({
+  'iss': '56665688270@developer.gserviceaccount.com',
+  'key': fs.readFileSync('key.pem', 'utf-8')
+})
 
 console.log(" ");
 console.log("SERVER STARTED");
@@ -13,24 +21,35 @@ http.createServer(function (req, res) {
 		var path = url.parse(req.url).pathname;
 		console.log(getDate() + " - REQUEST:   '" + path + "'");
 
-		//do stuff
-		var jsonArray = new Array(5);
-		jsonArray[0] = getAccounts();
-		jsonArray[1] = getIdentity();
-		jsonArray[2] = getAmount();
-		jsonArray[3] = getFrom();
-		jsonArray[4] = getTo();
-		
-		var concat = "";
-		for(var i in jsonArray){
-			if(i > 0){ concat+= ','; }
-			concat += jsonArray[i];
-		}
+    var payload = {
+      'id': 'reg1',
+      'input': {
+        'csvInstance': [
+          'Friday'
+        ]
+      }
+    }
 
-		//response
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('jsonCallback(\'{"result":{' + concat + '}}\')');
-		console.log(getDate() + " - RESPONSE:  sent")
+    predict.predict.predict('reg1', payload, function(result) {
+      //do stuff
+
+      var data = Hash({}).mergeAll([getAccounts(),
+        getIdentity(),
+        //getAmount(),
+        getFrom(),
+        getTo()]).items
+
+        data.amount = result.outputValue
+
+      var x = { 'result': data }
+      
+      //response
+      console.log(JSON.stringify(x))
+      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.end('jsonCallback('+ JSON.stringify(x) + ')')
+      console.log(getDate() + " - RESPONSE:  sent")
+    })
+
 }).listen(port);
 
 function getDate(){
@@ -40,27 +59,27 @@ function getDate(){
 
 //db
 function getAccounts(){
-	return '"accounts":[{"id":"Account 1"},{"id":"Account 2"},{"id":"Account 3"},{"id":"Account 4"}]';
+	return {"accounts":[{"id":"Account 1"},{"id":"Account 2"},{"id":"Account 3"},{"id":"Account 4"}]}
 }
 
 //db
 function getIdentity(){
-	return '"netbankId":"12345678","friendlyName":"Mr John Smith"'; 
+	return {"netbankId":"12345678","friendlyName":"Mr John Smith"}
 }
 
 //google
 function getAmount(){
-	return '"amount":"2"';
+	return {"amount":"2"}
 }
 
 //google?
 function getFrom(){
-	return '"fromAccountID":"Account 1"';
+	return {"fromAccountID":"Account 1"}
 }
 
 //random from list of accounts?
 function getTo(){
-	return '"toAccountID":"Account 2"';
+	return {"toAccountID":"Account 2"};
 }
 
 //old excessive json, - reference purposes only.

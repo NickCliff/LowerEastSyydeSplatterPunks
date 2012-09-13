@@ -37,6 +37,7 @@ function runFor(input){
 	    cache: false,
 	    timeout: 5000,
 	    success: function(data) {
+         console.log(data)
 	       initialise(data);
 	    },
 	    error: function(jqXHR, textStatus, errorThrown) {
@@ -137,8 +138,8 @@ $(function() {
 	*		- acctList: list of accounts for editing value
 	*		- regular: how often (i.e. weekly, fortnightly etc)
  	*/
-function getJSON(inputJSON, why){
-	var input = jQuery.parseJSON(inputJSON);
+function getJSON(input, why){
+	//var input = jQuery.parseJSON(inputJSON);
 	if(why == "id"){
 		return input.result.friendlyName;
 	}
