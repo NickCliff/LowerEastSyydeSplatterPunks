@@ -506,15 +506,23 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div></div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="DefaultTiddlers" creator="YourName" modifier="YourName" created="201209161248" modified="201209161306" changecount="2">
-<pre>[[Introduction]]
+<div title="DefaultTiddlers" creator="YourName" modifier="YourName" created="201209161248" changecount="1">
+<pre>[[GettingStarted]]
+[[Introduction]]
 [[Use Cases]]
-[[Installation Instructions]]
+[[Installation Instruction]]
 [[Limitations]]
-[[Technologies]]
-[[Thanks]]</pre>
+[[Technology]]
+[[Thank]]</pre>
 </div>
-<div title="Installation Instructions" creator="YourName" modifier="YourName" created="201209161254" modified="201209161300" changecount="9">
+<div title="GettingStarted" creator="YourName" modifier="YourName" created="201209161247" modified="201209161251" changecount="5">
+<pre>To get started with this blank [[TiddlyWiki]], you'll need to modify the following tiddlers:
+* [[SiteTitle]] &amp; [[SiteSubtitle]]: The title and subtitle of the site, as shown above (after saving, they will also appear in the browser title bar)
+* [[MainMenu]]: The menu (usually on the left)
+* [[DefaultTiddlers]]: Contains the names of the tiddlers that you want to appear when the TiddlyWiki is opened
+You'll also need to enter your username for signing your edits: &lt;&lt;option Nick&gt;&gt;</pre>
+</div>
+<div title="Installation Instructions" creator="YourName" modifier="YourName" created="201209161254" modified="201209161259" changecount="8">
 <pre>''nodeJS Server:''
 1. Install nodejs; {{{http://nodejs.org/}}}
 2. Navigate to server folder (TODO add a default server folder) and run the command {{{npm install}}}
@@ -527,39 +535,23 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 Might need to:
 - update line 15 of LESSP.js ({{{./Apps/LESSP-1.7/LESSP.js}}}) to point at location that node server will be running on (should not need to do this step but might have to if local machine is configured differently)</pre>
 </div>
-<div title="Introduction" creator="Nick" modifier="YourName" created="201209161250" modified="201209161307" changecount="7">
-<pre>{{{TODO}}} write</pre>
+<div title="Introduction" creator="Nick" modifier="YourName" created="201209161250" modified="201209161259" changecount="5">
+<pre>Type the text for 'Introduction'</pre>
 </div>
-<div title="Limitations" creator="YourName" modifier="YourName" created="201209161300" modified="201209161304" changecount="5">
-<pre>* sanitised data (not sure how it was sanitised, could possibly have done more if data included:
-** descriptions (unsure if John Smith could manage to spend $2,000 on groceries in one trip to the store as one transaction suggested)
-** time of day transaction occurred (they're scrubbed to only show date)
-** Certain days only have a limited number of transactions (i.e. On Thursdays over 2 years John only had 8 transactions total)</pre>
-</div>
-<div title="MainMenu" creator="YourName" modifier="YourName" created="201209161247" modified="201209161306" changecount="5">
-<pre>[[Introduction]]
+<div title="MainMenu" creator="YourName" modifier="YourName" created="201209161247" modified="201209161259" changecount="3">
+<pre>[[GettingStarted]]
+[[Introduction]]
 [[Use Cases]]
 [[Installation Instructions]]
 [[Limitations]]
 [[Technologies]]
 [[Thanks]]</pre>
 </div>
-<div title="SiteSubtitle" creator="YourName" modifier="YourName" created="201209161245" modified="201209161301" changecount="3">
+<div title="SiteSubtitle" creator="YourName" modifier="YourName" created="201209161245" changecount="1">
 <pre>An implementation of artificial intelligence in retail banking.</pre>
 </div>
 <div title="SiteTitle" creator="YourName" modifier="YourName" created="201209161245" modified="201209161259" changecount="5">
 <pre>''//predict//''</pre>
-</div>
-<div title="Technologies" creator="YourName" modifier="YourName" created="201209161300" modified="201209161305" changecount="2">
-<pre>* jQuery (Provided)
-* HTML (Provided)
-* nodejs (Calling Google's prediction algorithm - change calls)
-* Google Prediction API (Used for prediction of next transfer)
-* Postgres DB (just for inputting into Google)</pre>
-</div>
-<div title="Thanks" creator="YourName" modifier="YourName" created="201209161304" modified="201209161305" changecount="4">
-<pre>//The Lower East Side Splatter Punks
-- Andrew Purchas &amp; Nicholas Cliff//</pre>
 </div>
 <div title="Use Cases" creator="YourName" modifier="YourName" created="201209161249" changecount="1">
 <pre>1.	Every Friday, John heads to the pub after work, just before doing this he transfers $50 from his pay account into his transaction account, it's not a given and he doesn't want to commit to having a regular transaction occurring weekly. With Predict we attempt to determine that John has logged in purely for this purpose and suggest the transaction to him.
