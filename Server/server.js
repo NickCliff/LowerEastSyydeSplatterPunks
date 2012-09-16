@@ -2,7 +2,7 @@ var port = "8124";
 
 var http = require('http'),
     url = require('url'),
-    gp  = require('./node-google-bigquery/index'),
+    gp  = require('google-prediction'),
     fs  = require('fs'),
     Hash = require('hashish')
 
