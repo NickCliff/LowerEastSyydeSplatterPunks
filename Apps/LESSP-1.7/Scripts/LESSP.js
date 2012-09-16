@@ -48,7 +48,6 @@ function runFor(input){
 
 function setup(){
 	$('#blkBar').text("Test harnass")
-
 	
 	whereami('testHarness');
 	hideIt('start')
@@ -84,7 +83,7 @@ function initialise(json){
 		//updates values in 'start'
 		var jsonFeed = getJSON(json, 'predict');
 		var reg = getRegularCustomerAccountsAndValue(jsonFeed);
-		$('#acctAndVal').text("$" + reg[3] + " from " + reg[0] + " to " + reg[1] + " ");
+		$('#acctAndVal').text('$' + reg[3] + " from '" + reg[0] + "' to '" + reg[1] + "' ");
 		$('#tranVal').val(reg[3]);
 		$('#fromAcct').val(reg[0]);
 		$('#toAcct').val(reg[1]);
