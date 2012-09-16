@@ -30,8 +30,9 @@ $(document).ready(function() {
 
 function runFor(input){
 	jQuery.ajax({
-			url: 'http://' + localhost + ":" + port + "/" + input,
+	//		url: 'http://' + localhost + ":" + port + "/" + input,
 	//	    url: 'http://127.0.0.1:8124/',
+      url: "http://cba-predict.azurewebsites.net/" + input,
 	    dataType: "jsonp",
 	    jsonpCallback: "jsonCallback",
 	    cache: false,
