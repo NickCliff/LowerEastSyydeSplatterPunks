@@ -3,11 +3,11 @@
 	<head>
 	    <title>Lower East Side Splatter Punks</title>
 		<!-- scripts -->
-		<link rel="stylesheet" href="scripts/selectbox.css" type="text/css">
-	  <script src="pagebus.js" type="text/javascript"></script>
-	  <script src="jquery-1.7.2.js" type="text/javascript"></script>
-	  <script src="Framework.js" type="text/javascript"></script> 
-	  <script src="LESSP.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="styles/appSpecific.css" type="text/css">
+	  <script src="scripts/pagebus.js" type="text/javascript"></script>
+	  <script src="scripts/jquery-1.7.2.js" type="text/javascript"></script>
+	  <script src="scripts/Framework.js" type="text/javascript"></script> 
+	  <script src="scripts/LESSP.js" type="text/javascript"></script>
 	</head>
 	<body>
 	  <div class="background"></div>
@@ -25,9 +25,12 @@
 					  
 						<!-- Test Harness -->
 						<form class="form" id='testHarness'>
-		          <div class="content">  
-                <div class="input">
-									<label for="from">From</label>
+		          <div class="content">
+								<!-- error message if no data -->
+                <div id="nodataTitle" class="error">nodatadiv</div>
+                <div id="nodataText" class="error">nodatadiv</div>
+								<div class="input">
+									<label for="from">Run simulator for</label>
 	                <select name="from" id="dayToSend">
 	                	<option value="Monday">Monday</option>
 										<option value="Tuesday">Tuesday</option>

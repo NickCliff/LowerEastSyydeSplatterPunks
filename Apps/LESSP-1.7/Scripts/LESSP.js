@@ -38,7 +38,6 @@ function runFor(input){
 	    cache: false,
 	    timeout: 5000,
 	    success: function(data) {
-         console.log(data)
 	       initialise(data);
 	    },
 	    error: function(jqXHR, textStatus, errorThrown) {
@@ -48,8 +47,7 @@ function runFor(input){
 }
 
 function setup(){
-		$('#blkBar').text("Test harnass")
-
+	$('#blkBar').text("Test harnass")
 	
 	whereami('testHarness');
 	hideIt('start')
@@ -59,7 +57,23 @@ function setup(){
 	showIt('testHarness');
 }
 
+function updateWithError(error){
+	$('#nodataTitle').text("Error #" + error);
+	if(error == 1) {
+		$('#nodataText').text("We have detected that there isn't enough data available for the particular day (< 50 transactions) to accurately predict a customers next transaction. if the customer logged into NetBank on this day they would be passed straight through to the home netbank page without a popup. Please select another day");
+	}
+	else {
+		$('#nodataText').text("Undocumented Error");
+	}
+}
+
 function initialise(json){
+	var error = getJSON(json, 'validate')
+	if(error > 0){
+		updateWithError(error)
+		setup()
+	}
+	
 	whereami('start');
 	hideIt('edit');
 	hideIt('thanks');
@@ -142,6 +156,9 @@ $(function() {
  	*/
 function getJSON(input, why){
 	//var input = jQuery.parseJSON(inputJSON);
+	if(why == "validate"){
+		return input.result.error;
+	}
 	if(why == "id"){
 		return input.result.friendlyName;
 	}
