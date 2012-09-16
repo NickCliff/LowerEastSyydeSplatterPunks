@@ -6,4 +6,5 @@ select {
 	color: black;
 	-webkit-box-align: center;
 	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
+background: white url("../img/selectbg.png") no-repeat right center;
 }

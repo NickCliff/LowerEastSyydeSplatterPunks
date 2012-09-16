@@ -1,5 +1,3 @@
-tiddlywiki
-
 PREDICT
 	An implementation of artificial intelligence in retail banking.
 
