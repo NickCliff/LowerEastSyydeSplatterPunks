@@ -48,8 +48,7 @@ function runFor(input){
 
 function setup(){
 	$('#blkBar').text("Test harnass")
-	
-	updateWithError(1);
+
 	
 	whereami('testHarness');
 	hideIt('start')
