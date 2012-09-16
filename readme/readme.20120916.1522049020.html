@@ -514,9 +514,11 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 [[Technologies]]
 [[Thanks]]</pre>
 </div>
-<div title="Installation Instructions" creator="YourName" modifier="YourName" created="201209161254" modified="201209161530" changecount="12">
+<div title="Installation Instructions" creator="YourName" modifier="YourName" created="201209161254" modified="201209161300" changecount="9">
 <pre>''nodeJS Server:''
-1. Instructions were for installing locally, however this is now hosted on Windows Azure with all dependancies being managed in the cloud by NPM (Node.JS packaged modules) during deployment using git.
+1. Install nodejs; {{{http://nodejs.org/}}}
+2. Navigate to server folder (TODO add a default server folder) and run the command {{{npm install}}}
+3. Start node server; (command should be: {{{node ./Server/server.js}}} in command line)
 
 ''Client''
 3. Start apache server; ({{{apachectl start}}} on mac)
@@ -525,24 +527,12 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 Might need to:
 - update line 15 of LESSP.js ({{{./Apps/LESSP-1.7/LESSP.js}}}) to point at location that node server will be running on (should not need to do this step but might have to if local machine is configured differently)</pre>
 </div>
-<div title="Introduction" creator="Nick" modifier="YourName" created="201209161250" modified="201209161530" changecount="13">
-<pre>Predict is one example of how we can use our current data to better understand and predict our customers future behaviors and needs before they themselves know it. By combining data readily available to us with various machine learning techniques it will help CBA gain a new level of intimacy with our existing customers and offer a more complete well rounded service.
-
-Predict works by
-* Taking a set of data for a certain customer, and uploads this to cloud storage
-* The data is then passed through to the google prediction / machine learning engine where we perform a time series regression analysis of the data to help predict a transaction for a specified point of time, in our case a specific day
-* After the models have been trained, we are free to pass it prediction parameters. The flow occurs as such
-** Client
-** Node.JS server (hosted on the Windows Azure Cloud Platform)
-** Google Prediction API
-** Back through the Server to return a processed result for client consumption
-
-After the above has occurred, we place our client in control, leaving them with the power to accept, reject just this transaction, or to completely ignore future reccomendations. Because this project has been pulled together in a very limited time frame Predict is just one example of the application of machine learning to better understand and service our customers.
-</pre>
+<div title="Introduction" creator="Nick" modifier="YourName" created="201209161250" modified="201209161506" changecount="8">
+<pre>{{{TODO}}} write</pre>
 </div>
-<div title="Limitations" creator="YourName" modifier="YourName" created="201209161300" modified="201209161533" changecount="7">
+<div title="Limitations" creator="YourName" modifier="YourName" created="201209161300" modified="201209161304" changecount="5">
 <pre>* sanitised data (not sure how it was sanitised, could possibly have done more if data included:
-** descriptions (unsure if John Smith could manage to spend $2,000 on groceries in one trip to the store as one transaction (TC188) suggested)
+** descriptions (unsure if John Smith could manage to spend $2,000 on groceries in one trip to the store as one transaction suggested)
 ** time of day transaction occurred (they're scrubbed to only show date)
 ** Certain days only have a limited number of transactions (i.e. On Thursdays over 2 years John only had 8 transactions total)</pre>
 </div>
@@ -560,15 +550,12 @@ After the above has occurred, we place our client in control, leaving them with 
 <div title="SiteTitle" creator="YourName" modifier="YourName" created="201209161245" modified="201209161259" changecount="5">
 <pre>''//predict//''</pre>
 </div>
-<div title="Technologies" creator="YourName" modifier="YourName" created="201209161300" modified="201209161530" changecount="3">
+<div title="Technologies" creator="YourName" modifier="YourName" created="201209161300" modified="201209161305" changecount="2">
 <pre>* jQuery (Provided)
 * HTML (Provided)
 * nodejs (Calling Google's prediction algorithm - change calls)
 * Google Prediction API (Used for prediction of next transfer)
-* Postgres DB (just for inputting into Google, xpath xml queries)
-* Windows Azure Cloud Platform
-* Microsoft SQL Server (Switched to this to play nicely with Azure)
-* Git / Github for not only version control but for deployments too)</pre>
+* Postgres DB (just for inputting into Google)</pre>
 </div>
 <div title="Thanks" creator="YourName" modifier="YourName" created="201209161304" modified="201209161305" changecount="4">
 <pre>//The Lower East Side Splatter Punks
