@@ -49,6 +49,8 @@ function runFor(input){
 function setup(){
 	$('#blkBar').text("Test harnass")
 	
+	updateWithError(1);
+	
 	whereami('testHarness');
 	hideIt('start')
 	hideIt('edit');
@@ -72,37 +74,37 @@ function initialise(json){
 	if(error > 0){
 		updateWithError(error)
 		setup()
+	} else {
+		whereami('start');
+		hideIt('edit');
+		hideIt('thanks');
+		hideIt('confirm');
+		hideIt('testHarness');
+		showIt('start');
+	
+		//updates values in 'start'
+		var jsonFeed = getJSON(json, 'predict');
+		var reg = getRegularCustomerAccountsAndValue(jsonFeed);
+		$('#acctAndVal').text("$" + reg[3] + " from " + reg[0] + " to " + reg[1] + " ");
+		$('#tranVal').val(reg[3]);
+		$('#fromAcct').val(reg[0]);
+		$('#toAcct').val(reg[1]);
+	
+		var val = howOften(jsonFeed); 
+		$('#often').text("Make this a regular transaction, " + val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
+		$('#howOften').text("Make this a regular transaction, "+ val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
+		$('#period').val(val[1]); //grabs period code
+		$('#date').val(val[3]); //grabs today's date
+	
+		$('#blkBar').text("Welcome, " + getJSON(json, 'id'));
+
+		//updates values in 'edit'
+		$("#editVal").attr("placeholder", "$" + reg[3]);
+
+		json = getJSON(json, 'acctList');	
+		addOptions(json, "#editFrom", jsonFeed[3]);
+		addOptions(json, "#editTo", jsonFeed[4]);
 	}
-	
-	whereami('start');
-	hideIt('edit');
-	hideIt('thanks');
-	hideIt('confirm');
-	hideIt('testHarness');
-	showIt('start');
-	
-	//updates values in 'start'
-	var jsonFeed = getJSON(json, 'predict');
-	var reg = getRegularCustomerAccountsAndValue(jsonFeed);
-	$('#acctAndVal').text("$" + reg[3] + " from " + reg[0] + " to " + reg[1] + " ");
-	$('#tranVal').val(reg[3]);
-	$('#fromAcct').val(reg[0]);
-	$('#toAcct').val(reg[1]);
-	
-	var val = howOften(jsonFeed); 
-	$('#often').text("Make this a regular transaction, " + val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
-	$('#howOften').text("Make this a regular transaction, "+ val[0] + ", from today (" + val[4] + "/" + val[5] + "/" + val[6] + ")");
-	$('#period').val(val[1]); //grabs period code
-	$('#date').val(val[3]); //grabs today's date
-	
-	$('#blkBar').text("Welcome, " + getJSON(json, 'id'));
-
-	//updates values in 'edit'
-	$("#editVal").attr("placeholder", "$" + reg[3]);
-
-	json = getJSON(json, 'acctList');	
-	addOptions(json, "#editFrom", jsonFeed[3]);
-	addOptions(json, "#editTo", jsonFeed[4]);
 }
 
 function addOptions(json, element, select){
