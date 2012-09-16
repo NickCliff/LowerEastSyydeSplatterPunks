@@ -506,26 +506,15 @@ noscript {display:none;} /* Fixes a feature in Firefox 1.5.0.2 where print previ
 </div></div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="Credits" creator="YourName" modifier="YourName" created="201209161641" changecount="1">
-<pre>This project was pulled together from various open source resources where we have used and re-written open source code to fit the purpose of predict. The main credits go to 
-
-* Gustavo Machado - Google Big Query Library
-** We viewed his library for interacting with google big query which helped us understand authentication from Node.JS. We viewed this open source library and re-wrote what we needed to interact with the prediction API from an authentication point of view
-* Hashish
-** We used this for hashing together various results on our node.JS server to return one JSONP object with everything we needed to select from the client side
-
-We have given credit where possible to any third party open source libraries or technical input we have used or adapted in the project, as without them our job would be a lot harder. Credit given in readme's, packages, code, anywhere we deemed neccesary.</pre>
-</div>
-<div title="DefaultTiddlers" creator="YourName" modifier="YourName" created="201209161248" modified="201209161634" changecount="3">
+<div title="DefaultTiddlers" creator="YourName" modifier="YourName" created="201209161248" modified="201209161306" changecount="2">
 <pre>[[Introduction]]
 [[Use Cases]]
 [[Installation Instructions]]
 [[Limitations]]
 [[Technologies]]
-[[Credits]]
 [[Thanks]]</pre>
 </div>
-<div title="Installation Instructions" creator="YourName" modifier="YourName" created="201209161254" modified="201209161633" changecount="13">
+<div title="Installation Instructions" creator="YourName" modifier="YourName" created="201209161254" modified="201209161530" changecount="12">
 <pre>''nodeJS Server:''
 1. Instructions were for installing locally, however this is now hosted on Windows Azure with all dependancies being managed in the cloud by NPM (Node.JS packaged modules) during deployment using git.
 
@@ -536,10 +525,10 @@ We have given credit where possible to any third party open source libraries or 
 Might need to:
 - update line 15 of LESSP.js ({{{./Apps/LESSP-1.7/LESSP.js}}}) to point at location that node server will be running on (should not need to do this step but might have to if local machine is configured differently)</pre>
 </div>
-<div title="Introduction" creator="Nick" modifier="YourName" created="201209161250" modified="201209161643" changecount="15">
+<div title="Introduction" creator="Nick" modifier="YourName" created="201209161250" modified="201209161530" changecount="13">
 <pre>Predict is one example of how we can use our current data to better understand and predict our customers future behaviors and needs before they themselves know it. By combining data readily available to us with various machine learning techniques it will help CBA gain a new level of intimacy with our existing customers and offer a more complete well rounded service.
 
-Predict currently works by
+Predict works by
 * Taking a set of data for a certain customer, and uploads this to cloud storage
 * The data is then passed through to the google prediction / machine learning engine where we perform a time series regression analysis of the data to help predict a transaction for a specified point of time, in our case a specific day
 * After the models have been trained, we are free to pass it prediction parameters. The flow occurs as such
@@ -549,7 +538,6 @@ Predict currently works by
 ** Back through the Server to return a processed result for client consumption
 
 After the above has occurred, we place our client in control, leaving them with the power to accept, reject just this transaction, or to completely ignore future reccomendations. Because this project has been pulled together in a very limited time frame Predict is just one example of the application of machine learning to better understand and service our customers.
-
 </pre>
 </div>
 <div title="Limitations" creator="YourName" modifier="YourName" created="201209161300" modified="201209161533" changecount="7">
@@ -558,13 +546,12 @@ After the above has occurred, we place our client in control, leaving them with 
 ** time of day transaction occurred (they're scrubbed to only show date)
 ** Certain days only have a limited number of transactions (i.e. On Thursdays over 2 years John only had 8 transactions total)</pre>
 </div>
-<div title="MainMenu" creator="YourName" modifier="YourName" created="201209161247" modified="201209161634" changecount="6">
+<div title="MainMenu" creator="YourName" modifier="YourName" created="201209161247" modified="201209161306" changecount="5">
 <pre>[[Introduction]]
 [[Use Cases]]
 [[Installation Instructions]]
 [[Limitations]]
 [[Technologies]]
-[[Credits]]
 [[Thanks]]</pre>
 </div>
 <div title="SiteSubtitle" creator="YourName" modifier="YourName" created="201209161245" modified="201209161301" changecount="3">
@@ -587,7 +574,7 @@ After the above has occurred, we place our client in control, leaving them with 
 <pre>//The Lower East Side Splatter Punks
 - Andrew Purchas &amp; Nicholas Cliff//</pre>
 </div>
-<div title="Use Cases" creator="YourName" modifier="YourName" created="201209161249" modified="201209161633" changecount="3">
+<div title="Use Cases" creator="YourName" modifier="YourName" created="201209161249" modified="201209161506" changecount="2">
 <pre>1.	Every Friday, John heads to the pub after work, just before doing this he transfers $50 from his pay account into his transaction account, it's not a given and he doesn't want to commit to having a regular transaction occurring weekly. With Predict we attempt to determine that John has logged in purely for this purpose and suggest the transaction to him.
 
 2.	Jane gets paid each Wednesday, she logs in Thursday to transfer monday from the account she gets paid into to repay her credit card, sometimes it's $300, sometimes it's $350. Predict can suggest the transaction and if this week Jane wishes to transfer $400 she can easily hit edit and type in an amended value.</pre>
