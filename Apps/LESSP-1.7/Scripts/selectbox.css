@@ -5,9 +5,5 @@ select {
 	-webkit-rtl-ordering: logical;
 	color: black;
 	-webkit-box-align: center;
-//	background-image: url("img/selectbox.png") no-repeat right center;, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
-	background-image: url(../img/selectbox.png), 
-	    -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
-	background-position: center right;
-	background-repeat: no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
 }
