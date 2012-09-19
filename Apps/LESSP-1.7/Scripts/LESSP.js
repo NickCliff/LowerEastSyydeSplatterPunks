@@ -106,9 +106,11 @@ function initialise(json){
 }
 
 function addOptions(json, element, select){
-	while(element.firstChild) {
-		element.remove(element.firstChild)
-	}
+	//while(element.firstChild) {
+	//	element.remove(element.firstChild)
+	//}
+	
+	$(element).find('option').remove()
 	
 	jQuery.each(json, function(i, e){
 		if(select == e.id){
